@@ -3,7 +3,7 @@ class Bejegyzes{
         this.szulo = szulo;
         szulo.append(
             `<table>
-                <tr>
+                <tr id="head">
                     <th>Osztály</th>
                     <th>Tevékenység</th>
                     <th>Pont</th>

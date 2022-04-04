@@ -10,6 +10,7 @@
     <script src="\js\ajax.js"></script>
     <script src="\js\bejegyzes.js"></script>
     <script src="\js\script.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
     <title>KP</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
         <section>
                 <label for="rendezes">Pont szerint rendezés:</label><br>
                 <select name="rendezes" id="rendezes">
-                    <option value=""></option>
+                    <option value="" disabled selected hidden>Válassz rendezést</option>
                     <option value="novekvo">Növekvő</option>
                     <option value="csokkeno">Csökkenő</option>                   
                   </select>

@@ -30,6 +30,34 @@ $(function () {
         });
     }
 
+    function googleChart(adatok){
+        let tomb = [['Osztályok', 'Pontszám', { role: 'style' }]];
+        adatok.forEach((elem)=>{
+            tomb.push([elem.osztaly, parseInt(elem.pontszam), 'green']);
+        });
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+        var data = google.visualization.arrayToDataTable(tomb);
+
+        var options = {
+            title:'Pontszámok osztályonként',
+            hAxis: {
+                title: 'Pontszám',
+                minValue: 0
+            },
+            vAxis: {
+                title: 'Osztályok'
+            },
+            width: '500',
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        }
+    }
+
     $("#rendezes").on("change",function(){
         let apivp="";
         let kivalasztottszures=$(this, " option:selected").val();
@@ -51,39 +79,14 @@ $(function () {
         let ujAdat={
             "osztaly_id":osztaly_id,
             "tevekenyseg_id":tevekenyseg_id,
-            //"allapot":"jóváhagyásra vár",
+            "allapot":"jóváhagyásra vár",
         };
         ajax.postAjax(apivegpont+"/bejegyzes", ujAdat);
         //location.reload();
         ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
     });
 
-    ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt",(adatok)=>{
-        let tomb = [['Osztályok', 'Pontszám']];
-        adatok.forEach((elem)=>{
-            tomb.push([elem.osztaly, parseInt(elem.pontszam)]);
-        });
-        console.log(tomb);
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-        var data = google.visualization.arrayToDataTable(tomb);
-
-        var options = {
-            title:'Pontszámok osztályonként',
-            hAxis: {
-                title: 'Pontszám',
-                minValue: 0
-            },
-            vAxis: {
-                title: 'Osztályok'
-            }
-        };
-
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-        }
-    });
+    ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
 
 });
