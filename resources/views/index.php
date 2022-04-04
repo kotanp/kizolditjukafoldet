@@ -15,6 +15,12 @@
 </head>
 <body>
     <main>
+        <nav>
+        <a href="/login" class="aut">Log in</a>
+        <a href="/register" class="aut">Register</a>
+        <a href="/admin" class="aut">Admin</a>
+        </nav>
+        <h1>Kizöldítjük a Földet!</h1>
         <section>
             <form id="form" method="POST">
                     <fieldset>

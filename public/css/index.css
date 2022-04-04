@@ -1,9 +1,17 @@
+main{
+    max-width: 800px;
+    margin: auto;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 table, td, th {
     border: 1px solid;
     border-collapse: collapse;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 th{
@@ -34,6 +42,20 @@ fieldset{
     align-items: center;
 }
 
+.aut{
+    text-decoration: none;
+    color: rgb(151, 148, 148);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    text-align: right;
+}
+
+#kicsi{
+    display: none;
+}
+
 @media screen and (max-width: 762px) {
     fieldset{
         flex-direction: column;
@@ -45,7 +67,24 @@ fieldset{
         border-color: black;
     }
 
-    #head{
+    #nagy{
         display: none;
     }
+
+    #kicsi{
+        display: block;
+        padding: 0;
+        border-bottom: none;
+        border-top: none;
+    }
+
+    tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bejegyzesek;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BejegyzesekController extends Controller
 {
@@ -76,8 +77,6 @@ class BejegyzesekController extends Controller
     public function update(Request $request, $bejegyzesId)
     {
         $bejegyzes = Bejegyzesek::find($bejegyzesId);
-        $bejegyzes->tevekenyseg_id = $request->tevekenyseg_id;
-        $bejegyzes->osztaly_id = $request->osztaly_id;
         $bejegyzes->allapot = $request->allapot;
         $bejegyzes->save();
     }
@@ -127,6 +126,12 @@ class BejegyzesekController extends Controller
         ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
         ->groupBy('osztaly.nev')->get();
         return $bejegyzes;
+    }
+
+    public function userBejegyzes(){
+        $user = Auth::user();
+        $bejegyzesek = Bejegyzesek::with('osztaly')->with('tevekenyseg')->where('osztaly_id','=',$user->osztaly_id)->where('allapot','=','jóváhagyásra vár')->get();
+        return $bejegyzesek;
     }
 
 

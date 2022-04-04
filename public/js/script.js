@@ -11,7 +11,8 @@ $(function () {
     function bejegyzesLista(adatok){
         let szulo = $("#tablazat");
         szulo.empty();
-        let tablazat = new Bejegyzes(szulo, adatok);
+        let tablazat = new BejegyzesTablazat(szulo, adatok);
+        let tablazat2 = new BejegyzesKisTablazat(szulo, adatok);
     }
 
     function tevekenysegLista(tevekenysegek){

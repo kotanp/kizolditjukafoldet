@@ -31,9 +31,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['auth']);
+
 
 ##BEJEGYZES
 Route::get('/bejegyzesek', [BejegyzesekController::class, 'index']);
+Route::get('/bejegyzesek/tanar', [BejegyzesekController::class, 'userBejegyzes']);
 Route::get('/bejegyzesek/osztaly', [BejegyzesekController::class, 'expandOsztaly']);
 Route::get('/bejegyzesek/expand', [BejegyzesekController::class, 'expand']);
 Route::get('/bejegyzesek/sortbytev', [BejegyzesekController::class, 'sortByTevekenyseg']);
