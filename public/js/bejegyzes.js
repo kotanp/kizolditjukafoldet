@@ -5,6 +5,7 @@ class BejegyzesTablazat{
         this.adat = adat;
         this.tabla = this.szulo.children("table:last");   
         this.tablazatEpites(adat,this.tabla);
+        console.log(adat)
         
     }
     tablazat(szulo){
@@ -29,7 +30,17 @@ class BejegyzesTablazat{
             );
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
-            this.tablaElem.append("<td>" + this.adat[index].allapot + "</td>");
+            if(this.adat[index].allapot==="elfogadva"){
+                this.tablaElem.append("<td class="+"allapot-kesz"+">" + this.adat[index].allapot + "</td>");
+            }
+            else{
+                this.tablaElem.append("<td class="+"allapot-folyamatban"+">" + this.adat[index].allapot + "</td>");
+            }
+            
+        }
+        for (let index = 0; index < $(".allapot-elem").length; index++) {
+            console.log($(".allapot-elem").eq(index));
+            
         }
     }
 }

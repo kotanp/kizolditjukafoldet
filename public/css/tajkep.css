@@ -596,13 +596,13 @@ body,.tajkep{
   animation-delay: 3.5s;
 }
 
-.progress-bar{
+.progress-bar1{
   width: 100%;
   background-color: grey;
   border-radius: 10px;
   
 }
-.progress{
+.progress1{
   padding-left: .75rem;
   width: 1%;
   height: 20px;
@@ -618,6 +618,9 @@ body,.tajkep{
   min-width: 500px;
   text-align: center;
   
+}
+*{
+  font-family: 'Poppins', sans-serif;
 }
 .szamalk .main{
 
@@ -689,6 +692,45 @@ body,.tajkep{
   }
 }
 
+.navopen,.navclose{
+  cursor: pointer;
+  margin-left: .5rem;
+  margin-top: .5rem;
+  position: absolute;
+  left: 0%;
+  top:0%;
+  background-color: white;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  padding: .25rem;
+  font-size: 1.05rem;
+  border-radius: 5px;
+  z-index: 600!important;
+}
+
+.navclose{
+  position: static;
+  display: block;
+  color: rgb(0, 38, 255);
+  top:2%;
+  left: .5%;
+}
+
+.nav{
+  z-index: 550;
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  left: 0%;
+  top:0%;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+
+}
+h1{
+  font-family: 'Montserrat', sans-serif;
+}
 
 @media screen and (max-height:500px) {
  .tavirozsa1{

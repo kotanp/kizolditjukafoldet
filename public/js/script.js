@@ -51,7 +51,7 @@ $(function () {
             vAxis: {
                 title: 'Osztályok'
             },
-            width: '500',
+            width: '600',
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));

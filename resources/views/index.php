@@ -14,40 +14,6 @@
     <title>KP</title>
 </head>
 <body>
-    <main>
-        <nav>
-        <a href="/login" class="aut">Log in</a>
-        <a href="/register" class="aut">Register</a>
-        <a href="/admin" class="aut">Admin</a>
-        </nav>
-        <h1>Kizöldítjük a Földet!</h1>
-        <section>
-            <form id="form" method="POST">
-                    <fieldset>
-                    <legend>Mit tettél ma a Földért?</legend>
-                    <select id="osztaly">
-                        <option value="" disabled selected hidden>Válassz osztályt</option>
-                    </select>
-                    <select id="tevekenyseg">
-                        <option value="" disabled selected hidden>Válassz tevékenységet</option>
-                    </select>
-                    <input type="button" id="submit" value="Küld">
-                </fieldset> 
-            </form>
-        </section>
-        <div id="chart_div"></div>
-        <section id="tablazat">
-
-        </section>
-        <section>
-                <label for="rendezes">Pont szerint rendezés:</label><br>
-                <select name="rendezes" id="rendezes">
-                    <option value="" disabled selected hidden>Válassz rendezést</option>
-                    <option value="novekvo">Növekvő</option>
-                    <option value="csokkeno">Csökkenő</option>                   
-                  </select>
-        </section>
-        
-    </main>
+    
 </body>
 </html>

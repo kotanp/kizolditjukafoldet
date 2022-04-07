@@ -4,20 +4,71 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="\css\tajkep.css" />
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <script src="\js\tajkep.js"></script>
+    <script src="\js\ajax.js"></script>
+    <script src="\js\bejegyzes.js"></script>
+    <script src="\js\script.js"></script>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <title>Document</title>
   </head>
+    <button class="navopen">Menu</button>
+    <div class="nav" >
+    
+    <main>
+    <button class="navclose">X</button>
+        <nav>
+        <a href="/login" class="aut">Log in</a>
+        <a href="/register" class="aut">Register</a>
+        <a href="/admin" class="aut">Admin</a>
+        </nav>
+        
+        <h1 class="title1">Kizöldítjük a Földet! </h1>
+        <section>
+            <form id="form" method="POST">
+                    <fieldset>
+                    <legend>Mit tettél ma a Földért?</legend>
+                    <div class="selectek">
+                    <select id="osztaly"  class="form-select form-select-sm">
+                        <option value="" disabled selected hidden>Válassz osztályt</option>
+                    </select>
+                    <select id="tevekenyseg" class="form-select form-select-sm">
+                        <option value="" disabled selected hidden >Válassz tevékenységet</option>
+                    </select>
+                    </div>  
+                    <input type="button" id="submit" value="Küld" class="btn btn-success">
+                </fieldset> 
+            </form>
+        </section>
+        <div id="chart_div"></div>
+          <section class="rendezo">
+                  <label for="rendezes">Pont szerint rendezés:</label><br>
+                  <select name="rendezes" id="rendezes" class="form-select form-select-sm">
+                      <option value="" disabled selected hidden>Válassz rendezést</option>
+                      <option value="novekvo">Növekvő</option>
+                      <option value="csokkeno">Csökkenő</option>                   
+                    </select>
+          </section>
+        <section id="tablazat" class="table">
 
+        </section>
+        
+        
+    </main>
+    </div>
     <div  class="menu">
     
       <button class="colorOnce" title="Egyesével szinezi az elemeket">Színez <span class="badge">0</span></button>
-      <div class="progress-bar">
-        <div class="progress"></div>
+      <div class="progress-bar1">
+        <div class="progress1"></div>
       </div>
     </div>
  
