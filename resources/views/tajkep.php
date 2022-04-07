@@ -14,9 +14,11 @@
   </head>
 
     <div  class="menu">
-      <button class="hideAll" title="Elrejte minden elemet">Elrejt</button>
-      <button class="grayAll" title="Beszürkít minden elemet">Szürkít </button>
+    
       <button class="colorOnce" title="Egyesével szinezi az elemeket">Színez <span class="badge">0</span></button>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
     </div>
  
   <body>

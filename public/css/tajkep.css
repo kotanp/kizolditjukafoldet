@@ -12,7 +12,7 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: ghostwhite;
-  width: fit-content;
+  width: 500px;
   padding: 1rem;
   margin: 1rem;
   border-radius: 5px;
@@ -592,6 +592,22 @@ body,.tajkep{
   -webkit-animation-delay: 3.5s;
   animation-delay: 3.5s;
 }
+
+.progress-bar{
+  width: 100%;
+  background-color: grey;
+  border-radius: 10px;
+  
+}
+.progress{
+  padding-left: .75rem;
+  width: 1%;
+  height: 20px;
+  background-color: rgb(143, 211, 9);
+  border-radius: 10px;
+}
+
+
 @media screen and (max-height:500px) {
  .tavirozsa1{
    top: 59%;

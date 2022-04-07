@@ -7,6 +7,7 @@ $(function(){
     let osszesDiv = document.querySelector("body").querySelectorAll("div");
     let hatterElemek = [$(".sun-container"),$(".vizpart"),$(".cloud")];
     let szinezett = 0;
+    
 
     let kattint = (DOM,callback)=>{
         DOM.on("click",()=>{
@@ -37,11 +38,22 @@ $(function(){
         szurkit(hatterElemek);
     }
 
+    //pontszámig színez
     let egyetSzinez = ()=>{
         let szinezheto = $(".szurkit");
+        let progress = $(".progress");
+        console.log(progress)
+        let pontszam = 3;
         let szinez =  (tomb) =>{
-            $(tomb[0]).removeClass("szurkit");
-            szinezett++;
+            for (let index = 0; index < pontszam; index++) {
+                $(tomb[index]).removeClass("szurkit");
+                szinezett++;
+                
+            }
+            szinezett+=2;
+            progress.css("width",szinezett+"%");
+            
+            
         }
         $(".badge").text(szinezett)
       
@@ -49,10 +61,10 @@ $(function(){
         szinez(szinezheto)
     }
 
-    kattint(ELREJT,elrejtMindent);
+   // kattint(ELREJT,elrejtMindent);
     kattint(SZURKIT,szurkitMindent);
     kattint(EGYETSZINEZ,egyetSzinez);
-
+    szurkitMindent();
 
     //...toltes esemény lesz
     window.addEventListener('load', function () {
