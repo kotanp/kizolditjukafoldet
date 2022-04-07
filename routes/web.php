@@ -35,6 +35,9 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth']);
 
+Route::get('/tajkep', function () {
+    return view('tajkep');
+});
 
 ##BEJEGYZES
 Route::get('/bejegyzesek', [BejegyzesekController::class, 'index']);
