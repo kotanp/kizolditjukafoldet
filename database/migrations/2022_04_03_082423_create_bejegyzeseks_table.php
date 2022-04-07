@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Bejegyzesek;
 
 class CreateBejegyzeseksTable extends Migration
 {
@@ -23,9 +24,9 @@ class CreateBejegyzeseksTable extends Migration
             
         });
 
-        Bejegyzes::create(['tevekenyseg_id' => 1, 'osztaly_id' => 2, 'allapot' => 'jóváhagyásra vár']);
-        Bejegyzes::create(['tevekenyseg_id' => 2, 'osztaly_id' => 1, 'allapot' => 'elfogadva']);
-        Bejegyzes::create(['tevekenyseg_id' => 6, 'osztaly_id' => 1, 'allapot' => 'elfogadva']);
+        Bejegyzesek::create(['tevekenyseg_id' => 1, 'osztaly_id' => 2, 'allapot' => 'jóváhagyásra vár']);
+        Bejegyzesek::create(['tevekenyseg_id' => 2, 'osztaly_id' => 1, 'allapot' => 'elfogadva']);
+        Bejegyzesek::create(['tevekenyseg_id' => 6, 'osztaly_id' => 1, 'allapot' => 'elfogadva']);
     }
 
     /**

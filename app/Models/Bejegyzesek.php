@@ -10,6 +10,11 @@ class Bejegyzesek extends Model
     use HasFactory;
     protected $table = 'bejegyzesek';
     public $timestamps = false;
+    protected $fillable = [
+        'tevekenyseg_id',
+        'osztaly_id',
+        'allapot',
+    ];
 
     public function osztaly(){
         return $this->hasMany(Osztaly::class, 'id', 'osztaly_id');
