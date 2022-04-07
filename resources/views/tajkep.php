@@ -21,6 +21,15 @@
       </div>
     </div>
  
+    <div class="loading">
+   
+    <div class="loading-title">
+        <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
+        
+    </div>
+    <img class="szamalk-logo" src="kepek/banner.png" alt="logo">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
   <body>
     <div class="tajkep">
       <div class="sun-container">
