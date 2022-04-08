@@ -20,4 +20,12 @@ $(function () {
         ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
     });
 
+    $("#logout").on("click", (event)=>{
+        //event.preventDefault();
+        let ujAdat ={
+            _token:event.detail._token
+        }
+        ajax.postAjax(apivegpont+"/logout",ujAdat);
+    });
+
 });

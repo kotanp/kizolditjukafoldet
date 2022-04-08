@@ -13,6 +13,14 @@
     <title>KP</title>
 </head>
 <body>
+    <nav>
+        <a href="/" class="aut" id="logout">Kijelentkezés
+            <form method="POST" action="/logout">
+                <input type="hidden" name="_token">
+            </form>
+        </a>
+        <a href="/" class="aut">Kezdőlap</a>
+        </nav>
     <main>
         <section id="tablazat">
 

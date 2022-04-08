@@ -17,27 +17,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('index');
+    return view('tajkep');
 });
 
 Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth']);
 
-Route::get('/tajkep', function () {
-    return view('tajkep');
-});
 
 ##BEJEGYZES
 Route::get('/bejegyzesek', [BejegyzesekController::class, 'index']);
@@ -46,6 +35,7 @@ Route::get('/bejegyzesek/osztaly', [BejegyzesekController::class, 'expandOsztaly
 Route::get('/bejegyzesek/expand', [BejegyzesekController::class, 'expand']);
 Route::get('/bejegyzesek/sortbytev', [BejegyzesekController::class, 'sortByTevekenyseg']);
 Route::get('/bejegyzesek/filterbyoszt', [BejegyzesekController::class, 'filterByOsztaly']);
+Route::get('/bejegyzesek/filterbyoszt/{osztalyNev}', [BejegyzesekController::class, 'filterByOsztalyNev']);
 Route::get('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'show']);
 Route::put('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'update']);
 Route::post('/bejegyzes', [BejegyzesekController::class, 'store']);
