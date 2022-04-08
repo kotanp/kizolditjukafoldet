@@ -128,7 +128,7 @@ class BejegyzesekController extends Controller
         return $bejegyzes;
     }
 
-    public function filterByOsztalyNev($osztalyId){
+    public function filterByOsztalyId($osztalyId){
         $bejegyzes = Bejegyzesek::selectRaw('sum(tevekenyseg.pontszam) as pontszam')
         ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
         ->groupBy('osztaly_id')->having('osztaly_id','=',$osztalyId)->get();

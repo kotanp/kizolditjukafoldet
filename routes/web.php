@@ -35,7 +35,7 @@ Route::get('/bejegyzesek/osztaly', [BejegyzesekController::class, 'expandOsztaly
 Route::get('/bejegyzesek/expand', [BejegyzesekController::class, 'expand']);
 Route::get('/bejegyzesek/sortbytev', [BejegyzesekController::class, 'sortByTevekenyseg']);
 Route::get('/bejegyzesek/filterbyoszt', [BejegyzesekController::class, 'filterByOsztaly']);
-Route::get('/bejegyzesek/filterbyoszt/{osztalyNev}', [BejegyzesekController::class, 'filterByOsztalyNev']);
+Route::get('/bejegyzesek/filterbyoszt/{osztalyId}', [BejegyzesekController::class, 'filterByOsztalyId']);
 Route::get('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'show']);
 Route::put('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'update']);
 Route::post('/bejegyzes', [BejegyzesekController::class, 'store']);
