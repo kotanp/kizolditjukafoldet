@@ -128,11 +128,10 @@ class BejegyzesekController extends Controller
         return $bejegyzes;
     }
 
-    public function filterByOsztalyNev($osztalyNev){
-        $bejegyzes = Bejegyzesek::selectRaw('sum(tevekenyseg.pontszam) as pontszam, osztaly.nev as osztaly')
+    public function filterByOsztalyNev($osztalyId){
+        $bejegyzes = Bejegyzesek::selectRaw('sum(tevekenyseg.pontszam) as pontszam')
         ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
-        ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
-        ->groupBy('osztaly.nev')->having('osztaly.nev','=',$osztalyNev)->get();
+        ->groupBy('osztaly_id')->having('osztaly_id','=',$osztalyId)->get();
         return $bejegyzes->first();
     }
 
