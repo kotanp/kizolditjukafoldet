@@ -27,6 +27,14 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth']);
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/reset', function () {
+    return view('/reset');
+})->middleware(['auth']);
+
 
 ##BEJEGYZES
 Route::get('/bejegyzesek', [BejegyzesekController::class, 'index']);

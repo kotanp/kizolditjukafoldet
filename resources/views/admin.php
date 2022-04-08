@@ -20,6 +20,7 @@
             </form>
         </a>
         <a href="/" class="aut">Kezdőlap</a>
+        <a href="/reset" class="aut">Jelszó módosítás</a>
         </nav>
     <main>
         <section id="tablazat">

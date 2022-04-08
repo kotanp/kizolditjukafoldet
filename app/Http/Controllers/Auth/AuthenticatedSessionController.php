@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -50,5 +52,25 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function reset(Request $request){
+        $user = Auth::user();
+        
+        $userPassword = $user->password;
+
+        if (Hash::check($request->newpwd, $userPassword)) {
+            throw ValidationException::withMessages(['newpwd'=>'Az új jelszó nem lehet ugyanaz mint a régi jelszó!']);
+        }
+
+        if(!strcmp($request->newpwd,$request->confirmpwd)==0){
+            throw ValidationException::withMessages(['confirmpwd'=>'A megadott jelszó nem egyezik meg az új jelszóval!']);
+        }
+
+        $user->password = Hash::make($request->newpwd);
+        $user->timestamps = false;
+        $user->save();
+
+        return redirect('/admin');
     }
 }
