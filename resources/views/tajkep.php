@@ -23,7 +23,7 @@
     <button class="navopen">Menu</button>
     <div class="nav" >
     
-    <main>
+    <main >
     <button class="navclose">X</button>
         <nav>
         <a href="/login" class="aut">Bejelentkezés</a>
@@ -47,7 +47,9 @@
                 </fieldset> 
             </form>
         </section>
-        <div id="chart_div"></div>
+        <div>
+        
+        <div id="chart_div" class="chart"></div>
           <section class="rendezo">
                   <label for="rendezes">Pont szerint rendezés:</label><br>
                   <select name="rendezes" id="rendezes" class="form-select form-select-sm">
@@ -56,7 +58,7 @@
                       <option value="csokkeno">Csökkenő</option>                   
                     </select>
           </section>
-        <section id="tablazat" class="table">
+        <section id="tablazat">
 
         </section>
         
@@ -65,7 +67,7 @@
     </div>
     <div  class="menu">
     
-      <button class="colorOnce" title="Egyesével szinezi az elemeket">Színez <span class="badge">0</span></button>
+      <div class="colorOnce" >Pontszám<span class="badge">0</span></div>
       <div class="progress-bar1">
         <div class="progress1"></div>
       </div>
@@ -73,13 +75,15 @@
  
     <div class="loading">
    
-    <div class="loading-title">
-        <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
-        
+    <div class="img-container-load">
+      <img src="/kepek/banner.png"/>
     </div>
-    <img class="szamalk-logo" src="kepek/banner.png" alt="logo">
+    <div>
+    <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
+    </div>
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-    </div>
+   
+  </div>
   <body>
     <div class="tajkep">
       <div class="sun-container">
@@ -143,7 +147,7 @@
           <img src="kepek/Male-Deer.svg" class="oz" />
         </div>
       </div>
-      <div class="vizpart">
+      <div class="vizpart ">
         <img src="kepek/fish (1).svg" class="fish1 fishes" />
         <img src="kepek/fish (2).svg" class="fish2 fish fishes" />
         <img src="kepek/fish (2).svg" class="fish2 fish3 fishes" />
