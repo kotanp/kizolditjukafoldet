@@ -65,7 +65,9 @@ th, td{
 
 .chart {
     width: 100%; 
-    
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 #tablazat{
     width: 100%!important;

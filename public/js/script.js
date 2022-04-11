@@ -8,7 +8,9 @@ $(function () {
     ajax.getAjax(apivegpont+"/tevekenysegek", tevekenysegLista);
     ajax.getAjax(apivegpont+"/osztalyok", osztalyLista);
     
-
+    let osszesKep = document.querySelector("body").querySelectorAll("img");
+    let hatterElemek = [$(".sun-container"), $(".vizpart"), $(".cloud")];
+    szurkitMindent();
  
  
     function bejegyzesLista(adatok){
@@ -42,6 +44,7 @@ $(function () {
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         window.onresize = drawChart;
+      
         function drawChart() {
         var data = google.visualization.arrayToDataTable(tomb);
 
@@ -77,6 +80,57 @@ $(function () {
         ajax.getAjax(apivp,bejegyzesLista);
     });
 
+     function szurkitMindent() {
+        let szurkit = (tomb) => {
+            tomb.forEach((elem) => {
+                $(elem).addClass("szurkit");
+            });
+        };
+        $("body").css("backgroundColor", "gray");
+        szurkit(osszesKep);
+        szurkit(hatterElemek);
+    };
+    
+    let egyetSzinez = (pontszam) => {
+        let szinezett = 0;
+        let szinezheto = $(".szurkit");
+        let progress = $(".progress1");
+        $(".badge").text("0");
+        let szinez = (tomb) => {
+            for (let index = 0; index < pontszam; index++) {
+                $(tomb[index]).removeClass("szurkit");
+                szinezett++;
+            }
+            szinezett += 2;
+            progress.css("width", szinezett + "%");
+            $(".badge").text(pontszam);
+        };
+        console.log(szinezett)
+       
+
+        if (szinezheto.length === 0 && pontszam>=100)
+        {
+            $("body").css("backgroundColor", "rgba(0, 153, 255, 0.226)");
+            $(".badge").text("100%");
+        }
+            
+        szinez(szinezheto);
+    };
+
+
+    $("#osztaly").on("change",()=>{
+        
+        getOsztalyPontszam()
+
+
+    })
+
+    function getOsztalyPontszam(){
+        let osztaly_id=$("#osztaly option:selected").val();
+        szurkitMindent();
+        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt/"+osztaly_id,(adat)=>{egyetSzinez(adat.pontszam)})
+    }
+
     $("#submit").on("click",function(){
         let osztaly_id=$("#osztaly option:selected").val();
         let tevekenyseg_id=$("#tevekenyseg option:selected").val();
@@ -89,6 +143,7 @@ $(function () {
         //location.reload();
         ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
         ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
+      //  getOsztalyPontszam();
     });
 
     ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);

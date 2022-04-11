@@ -644,6 +644,7 @@ body,.tajkep{
 }
 .loading .loading-img-container{
   margin: auto;
+  width: 100%;
 }
 .loading{
   display:grid;
@@ -656,8 +657,8 @@ body,.tajkep{
   justify-items: center;
  
 }
-.img-container-load{
-
+.colorOnce{
+  text-align: center;
 }
 .loading img{
   filter: grayscale(0%)!important;

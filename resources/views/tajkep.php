@@ -67,7 +67,7 @@
     </div>
     <div  class="menu">
     
-      <button class="colorOnce" title="Egyesével szinezi az elemeket">Színez <span class="badge">0</span></button>
+      <div class="colorOnce" >Pontszám<span class="badge">0</span></div>
       <div class="progress-bar1">
         <div class="progress1"></div>
       </div>
@@ -85,7 +85,7 @@
    
   </div>
   <body>
-    <!-- <div class="tajkep">
+    <div class="tajkep">
       <div class="sun-container">
         <div class="cloud clouds"></div>
         <div class="cloud cloud-1 clouds"></div>
@@ -190,7 +190,7 @@
           NSZFA
         </div>
       </div>
-       -->
+      
     </div>
   </body>
 </html>
