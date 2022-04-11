@@ -659,6 +659,7 @@ body,.tajkep{
 }
 .colorOnce{
   text-align: center;
+  
 }
 .loading img{
   filter: grayscale(0%)!important;
@@ -706,11 +707,13 @@ body,.tajkep{
   margin-top: .5rem;
   position: absolute;
   left: 0%;
-  top:0%;
-  background-color: white;
+  top:1%;
+  background-color: whitesmoke;
+  color: black;
   border: none;
-  font-family: 'Poppins', sans-serif;
   padding: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
   font-size: 1.05rem;
   border-radius: 5px;
   z-index: 600!important;

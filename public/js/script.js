@@ -120,10 +120,16 @@ $(function () {
 
     $("#osztaly").on("change",()=>{
         
-        getOsztalyPontszam()
+        getOsztalyPontszam();
+        osztalyFelirat();
 
 
     })
+
+    function osztalyFelirat(){
+        let osztaly_felirat=$("#osztaly option:selected").text();
+        $(".felirat").text(osztaly_felirat);
+    }
 
     function getOsztalyPontszam(){
         let osztaly_id=$("#osztaly option:selected").val();
