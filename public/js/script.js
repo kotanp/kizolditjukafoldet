@@ -149,7 +149,7 @@ $(function () {
         //location.reload();
         ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
         ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
-      //  getOsztalyPontszam();
+        getOsztalyPontszam();
     });
 
     ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);

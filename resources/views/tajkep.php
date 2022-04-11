@@ -147,7 +147,7 @@
           <img src="kepek/Male-Deer.svg" class="oz" />
         </div>
       </div>
-      <div class="vizpart">
+      <div class="vizpart ">
         <img src="kepek/fish (1).svg" class="fish1 fishes" />
         <img src="kepek/fish (2).svg" class="fish2 fish fishes" />
         <img src="kepek/fish (2).svg" class="fish2 fish3 fishes" />
