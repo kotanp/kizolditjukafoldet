@@ -7,7 +7,10 @@ $(function () {
     ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
     ajax.getAjax(apivegpont+"/tevekenysegek", tevekenysegLista);
     ajax.getAjax(apivegpont+"/osztalyok", osztalyLista);
+    
 
+ 
+ 
     function bejegyzesLista(adatok){
         let szulo = $("#tablazat");
         szulo.empty();
@@ -38,7 +41,7 @@ $(function () {
         });
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
-
+        window.onresize = drawChart;
         function drawChart() {
         var data = google.visualization.arrayToDataTable(tomb);
 
@@ -51,7 +54,7 @@ $(function () {
             vAxis: {
                 title: 'Osztályok'
             },
-            width: '600',
+        
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));

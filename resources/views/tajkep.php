@@ -23,7 +23,7 @@
     <button class="navopen">Menu</button>
     <div class="nav" >
     
-    <main>
+    <main >
     <button class="navclose">X</button>
         <nav>
         <a href="/login" class="aut">Bejelentkezés</a>
@@ -47,7 +47,9 @@
                 </fieldset> 
             </form>
         </section>
-        <div id="chart_div"></div>
+        <div>
+        
+        <div id="chart_div" class="chart"></div>
           <section class="rendezo">
                   <label for="rendezes">Pont szerint rendezés:</label><br>
                   <select name="rendezes" id="rendezes" class="form-select form-select-sm">
@@ -56,7 +58,7 @@
                       <option value="csokkeno">Csökkenő</option>                   
                     </select>
           </section>
-        <section id="tablazat" class="table">
+        <section id="tablazat">
 
         </section>
         
@@ -73,15 +75,17 @@
  
     <div class="loading">
    
-    <div class="loading-title">
-        <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
-        
+    <div class="img-container-load">
+      <img src="/kepek/banner.png"/>
     </div>
-    <img class="szamalk-logo" src="kepek/banner.png" alt="logo">
+    <div>
+    <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
+    </div>
     <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-    </div>
+   
+  </div>
   <body>
-    <div class="tajkep">
+    <!-- <div class="tajkep">
       <div class="sun-container">
         <div class="cloud clouds"></div>
         <div class="cloud cloud-1 clouds"></div>
@@ -186,7 +190,7 @@
           NSZFA
         </div>
       </div>
-      
+       -->
     </div>
   </body>
 </html>

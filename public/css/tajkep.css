@@ -613,10 +613,11 @@ body,.tajkep{
 .szamalk{
   margin-top: 1rem;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 100%;
-  min-width: 500px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   
 }
 *{
@@ -626,7 +627,7 @@ body,.tajkep{
 
   font-size: 1.4rem;
   font-weight: 600;
-  text-align: center;
+
   padding-top: 1rem;
   
 }
@@ -639,36 +640,42 @@ body,.tajkep{
 }
 .szamalk-logo{
   filter: grayscale(0%)!important;
+ 
+}
+.loading .loading-img-container{
+  margin: auto;
+}
+.loading{
+  display:grid;
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 50%;
   transform: translate(-50%,-50%);
+  gap: 1rem;
+  width: 100%;
+  justify-items: center;
+ 
+}
+.img-container-load{
+
+}
+.loading img{
+  filter: grayscale(0%)!important;
+ display: inline;
+ width: 300px!important;
+
 }
 .loading-title{
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%,-50%);
+
   font-family: 'Poppins', sans-serif;
 }
-.lds-ring {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  height: 45px;
-  position: absolute;
-  left: 50%;
-  top: 65%;
-  transform: translate(-50%,-50%);
-}
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
+ 
+
   border: 8px solid #dfc;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
@@ -692,7 +699,7 @@ body,.tajkep{
   }
 }
 
-.navopen,.navclose{
+.navopen{
   cursor: pointer;
   margin-left: .5rem;
   margin-top: .5rem;
@@ -709,11 +716,16 @@ body,.tajkep{
 }
 
 .navclose{
-  position: static;
-  display: block;
-  color: rgb(0, 38, 255);
-  top:2%;
-  left: .5%;
+  background-color: white;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  padding: .25rem;
+  font-size: 1.05rem;
+  border-radius: 5px;
+  z-index: 600!important;
+  color: blue;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .nav{
@@ -721,12 +733,14 @@ body,.tajkep{
   display: none;
   cursor: pointer;
   position: absolute;
-  left: 0%;
-  top:0%;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  overflow-y: scroll;
 }
 h1{
   font-family: 'Montserrat', sans-serif;
@@ -748,4 +762,37 @@ h1{
  .felirat{
    padding-top: 5%;
  }
+ .loading img{
+   width: 200px!important;
+   
+ }
+ .loading{
+  display:grid;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-40%);
+  gap: 1rem;
+  width: 100%;
+  justify-items: center;
+ 
 }
+}
+
+@media screen and (max-height:300px) {
+ 
+  .loading img{
+    width: 100px!important;
+  }
+  .loading{
+   display:grid;
+   position: absolute;
+   left: 50%;
+   top: 45%;
+   transform: translate(-50%,-50%);
+   gap: 1rem;
+   width: 100%;
+   justify-items: center;
+  
+ }
+ }
