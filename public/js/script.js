@@ -163,4 +163,11 @@ $(function () {
 
     ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
 
+    $("#logout").on("click", (event)=>{
+        let ujAdat ={
+            _token:event.detail._token
+        }
+        ajax.postAjax(apivegpont+"/logout",ujAdat);
+    });
+
 });

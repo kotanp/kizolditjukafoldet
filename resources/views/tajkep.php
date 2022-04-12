@@ -26,6 +26,11 @@
     <main >
     <button class="navclose">X</button>
         <nav>
+        <a href="/" class="aut" id="logout">Kijelentkezés
+            <form method="POST" action="/logout">
+                <input type="hidden" name="_token">
+            </form>
+        </a>
         <a href="/login" class="aut">Bejelentkezés</a>
         <a href="/admin" class="aut">Admin</a>
         </nav>
