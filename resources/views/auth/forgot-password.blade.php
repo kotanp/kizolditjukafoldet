@@ -18,11 +18,6 @@
         <p class="kerdes">Elfelejtette a jelszavát?</p>
         <p><span class="keres">Kérjük keresse Cséfalvay Katalint!<br>Elérhetőség:</span><span class="email-csefy">csefalvay@szamalk-szalezi.hu</span> </p>
         </div>
-
-
-    
-
-            <!-- Email Address -->
             <div>
                
             </div>
@@ -34,6 +29,5 @@
                 </x-button>
                 </a>
             </div>
-        
     </x-auth-card>
 </x-guest-layout>
