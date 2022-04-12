@@ -1,12 +1,14 @@
 $(function () {
     let isLoading = true;
 
-    $(window).click(function () {
+    $(document).click(function (event) {
         $(".nav").slideUp(500, () => {
             $(".navopen").show();
         });
     });
-
+    $("main").click(function (event) {
+        event.stopPropagation();
+    });
     $(".navopen").click(function (event) {
         event.stopPropagation();
     });
