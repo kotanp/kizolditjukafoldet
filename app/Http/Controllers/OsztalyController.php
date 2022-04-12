@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Osztaly;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OsztalyController extends Controller
 {
@@ -89,4 +90,10 @@ class OsztalyController extends Controller
         $osztaly = Osztaly::find($osztalyId);
         $osztaly->delete();
     }
+
+    public function loggedInOsztaly(){
+        $user = Auth::user();
+        $osztaly = Osztaly::find($user->osztaly_id);
+        return $osztaly->nev;
+    } 
 }

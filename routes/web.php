@@ -58,6 +58,7 @@ Route::delete('/tevekenyseg/{tevekenysegId}', [TevekenysegController::class, 'de
 
 ##OSZTALY
 Route::get('/osztalyok', [OsztalyController::class, 'index']);
+Route::get('/osztaly/tanar', [OsztalyController::class, 'loggedInOsztaly']);
 Route::get('/osztaly/{osztalyId}', [OsztalyController::class, 'show']);
 Route::put('/osztaly/{osztalyId}', [OsztalyController::class, 'update']);
 Route::post('/osztaly', [OsztalyController::class, 'store']);

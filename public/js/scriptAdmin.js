@@ -25,6 +25,11 @@ $(function () {
         ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
     });
 
+    $(window).on("elutasitas",(event)=>{
+        ajax.deleteAjax(apivegpont+"/bejegyzes",event.detail.id);
+        ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
+    });
+
     $("#logout").on("click", (event)=>{
         //event.preventDefault();
         let ujAdat ={

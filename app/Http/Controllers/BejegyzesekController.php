@@ -124,7 +124,7 @@ class BejegyzesekController extends Controller
         $bejegyzes = Bejegyzesek::selectRaw('sum(tevekenyseg.pontszam) as pontszam, osztaly.nev as osztaly')
         ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
         ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
-        ->groupBy('osztaly.nev')->get();
+        ->groupBy('osztaly.nev')->where('allapot','=','elfogadva')->get();
         return $bejegyzes;
     }
 
