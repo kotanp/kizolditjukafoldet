@@ -104,9 +104,7 @@ $(function () {
             szinezett += 2;
             progress.css("width", szinezett + "%");
             $(".badge").text(pontszam);
-        };
-        console.log(szinezett)
-       
+        };      
 
         if (szinezheto.length === 0 && pontszam>=100)
         {
@@ -119,12 +117,17 @@ $(function () {
 
 
     $("#osztaly").on("change",()=>{
+        let id = $("#osztaly option:selected").val();
+        if (id!=='') {
+            ajax.getAjax(apivegpont+"/bejegyzesek/listbyoszt/"+id, bejegyzesLista);
+        }
+        else{
+            ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+        }
         
         getOsztalyPontszam();
         osztalyFelirat();
-
-
-    })
+    });
 
     function osztalyFelirat(){
         let osztaly_felirat=$("#osztaly option:selected").text();
@@ -134,7 +137,7 @@ $(function () {
     function getOsztalyPontszam(){
         let osztaly_id=$("#osztaly option:selected").val();
         szurkitMindent();
-        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt/"+osztaly_id,(adat)=>{egyetSzinez(adat.pontszam)})
+        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt/"+osztaly_id,(adat)=>{egyetSzinez(adat.pontszam)});
     }
 
     $("#submit").on("click",function(){
@@ -145,9 +148,13 @@ $(function () {
             "tevekenyseg_id":tevekenyseg_id,
             "allapot":"jóváhagyásra vár",
         };
-        ajax.postAjax(apivegpont+"/bejegyzes", ujAdat);
-        //location.reload();
-        ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+        if (osztaly_id!=='' && tevekenyseg_id!=='') {
+            ajax.postAjax(apivegpont+"/bejegyzes", ujAdat);
+            ajax.getAjax(apivegpont+"/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
+        }
+        else{
+            ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+        }
         ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
         getOsztalyPontszam();
     });

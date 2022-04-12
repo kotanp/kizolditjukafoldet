@@ -5,7 +5,6 @@ class BejegyzesTablazat{
         this.adat = adat;
         this.tabla = this.szulo.children("table:last");   
         this.tablazatEpites(adat,this.tabla);
-        console.log(adat)
         
     }
     tablazat(szulo){

@@ -141,5 +141,10 @@ class BejegyzesekController extends Controller
         return $bejegyzesek;
     }
 
+    public function listByOsztaly($osztalyId){
+        $bejegyzesek = Bejegyzesek::with('osztaly')->with('tevekenyseg')->where('osztaly_id','=',$osztalyId)->get();
+        return $bejegyzesek;
+    }
+
 
 }

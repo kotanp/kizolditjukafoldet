@@ -37,7 +37,7 @@
                     <legend>Mit tettél ma a Földért?</legend>
                     <div class="selectek">
                     <select id="osztaly"  class="form-select form-select-sm">
-                        <option value="" disabled selected hidden>Válassz osztályt</option>
+                        <option value="" selected>Válassz osztályt</option>
                     </select>
                     <select id="tevekenyseg" class="form-select form-select-sm">
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
