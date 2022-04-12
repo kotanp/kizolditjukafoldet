@@ -1,5 +1,16 @@
 $(function () {
     let isLoading = true;
+
+    $(window).click(function () {
+        $(".nav").slideUp(500, () => {
+            $(".navopen").show();
+        });
+    });
+
+    $(".navopen").click(function (event) {
+        event.stopPropagation();
+    });
+
     let megnyit = () => {
         $("body").children().css("display", "block");
         $(".nav").css("display", "none");
@@ -19,7 +30,7 @@ $(function () {
     });
 
     $("body").children().hide();
-    
+
     let toltes = () => {
         $("body").css("backgroundColor", "white");
         $(".loading").css("display", "");
