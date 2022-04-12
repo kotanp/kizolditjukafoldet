@@ -19,6 +19,29 @@
 }
 
 
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.email-csefy {
+    font-size: 1.2em;
+    color:red;
+    font-weight: bold;
+
+}
+button {
+    width: 99%;
+    margin: auto;
+    padding: 0.5rem;
+    background-color: #1877f2 !important;
+    justify-content: center;
+    color: white;
+    border-radius: 8px;
+    border: none;
+
+    cursor: pointer;
+}
+
 .szamalk {
     margin-top: 1rem;
     border-radius: 10px;
@@ -26,9 +49,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-* {
-    font-family: "Poppins", sans-serif;
 }
 .szamalk .main {
     font-size: 1.4rem;
@@ -50,22 +70,4 @@
     margin-top: 1rem;
     width: 100px;
     height: 100px;
-}
-.email-csefy {
-    font-size: 1.2em;
-    color:red;
-    font-weight: bold;
-
-}
-button {
-    width: 99%;
-    margin: auto;
-    padding: 0.5rem;
-    background-color: #1877f2 !important;
-    justify-content: center;
-    color: white;
-    border-radius: 8px;
-    border: none;
-
-    cursor: pointer;
 }

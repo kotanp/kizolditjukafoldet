@@ -22,16 +22,15 @@
         <h3>Admin - <span class="osztaly-nev">Osztaly Neve</span></h3>
     </div>
     <div class="linkek">
-        
         <a href="/" class="aut">Kezdőlap</a>
         <a href="/reset" class="aut ">Jelszó módosítás</a>
-        
-    </div>
-    <a href="/" class="aut" id="logout">Kijelentkezés
+        <a href="/" class="aut" id="logout">Kijelentkezés
             <form method="POST" action="/logout">
                 <input type="hidden" name="_token">
             </form>
-    </a>    
+    </a> 
+    </div>
+      
     </nav>
     <main >
         <section id="tablazat">

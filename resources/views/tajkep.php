@@ -31,7 +31,8 @@
                 <input type="hidden" name="_token">
             </form>
         </a>
-        <a href="/login" class="aut">Bejelentkezés</a>
+        <a class="logged-osztaly-nev"></a>
+        <a href="/login" class="aut login-button">Bejelentkezés</a>
         <a href="/admin" class="aut">Admin</a>
         </nav>
         
@@ -48,8 +49,9 @@
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
                     </select>
                     </div>
-                    <label for="nev">Név:</label>
-                    <input type="text" id="nev" name="nev"><br>  
+                    <div class="nev-container">
+                    <input type="text" id="nev" class="form-control form-select-sm" name="nev" placeholder="Név"><br>  
+                    </div>
                     <input type="button" id="submit" value="Küld" class="btn btn-success">
                 </fieldset> 
             </form>
@@ -194,7 +196,7 @@
         <img src="kepek/holzschild.svg" class="osztaly-tabla"/>
 
         <div class="osztaly-tabla felirat">
-          NSZFA
+      
         </div>
       </div>
       
