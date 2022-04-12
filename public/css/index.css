@@ -14,13 +14,8 @@ main {
     margin: auto;
     margin-bottom: 1rem;
 }
-#nev {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    width: 84%;
+.nev-container{
+    width: 100%;
 }
 .selectek {
     display: flex;
@@ -29,6 +24,7 @@ main {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%!important;
 }
 .rendezo {
     margin-top: 1rem;

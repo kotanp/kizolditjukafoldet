@@ -44,8 +44,9 @@
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
                     </select>
                     </div>
-                   
-                    <input type="text" id="nev" class="form-control form-select form-select-sm" name="nev" placeholder="Név"><br>  
+                    <div class="nev-container">
+                    <input type="text" id="nev" class="form-control form-select-sm" name="nev" placeholder="Név"><br>  
+                    </div>
                     <input type="button" id="submit" value="Küld" class="btn btn-success">
                 </fieldset> 
             </form>
@@ -190,7 +191,7 @@
         <img src="kepek/holzschild.svg" class="osztaly-tabla"/>
 
         <div class="osztaly-tabla felirat">
-          NSZFA
+      
         </div>
       </div>
       
