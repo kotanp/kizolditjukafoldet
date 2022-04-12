@@ -655,6 +655,7 @@ body,.tajkep{
   gap: 1rem;
   width: 100%;
   justify-items: center;
+  
  
 }
 .colorOnce{
@@ -668,7 +669,7 @@ body,.tajkep{
 
 }
 .loading-title{
-
+  
   font-family: 'Poppins', sans-serif;
 }
 

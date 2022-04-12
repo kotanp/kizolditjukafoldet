@@ -86,7 +86,7 @@ $(function () {
                 $(elem).addClass("szurkit");
             });
         };
-        $("body").css("backgroundColor", "gray");
+       
         szurkit(osszesKep);
         szurkit(hatterElemek);
     };

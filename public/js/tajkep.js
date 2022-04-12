@@ -2,9 +2,17 @@ $(function () {
 
     const token = $('meta[name="csrf-token"]').attr("content");
     const apivegpont = "http://localhost:8000";
-    let isLoading = true;
-    new Ajax(token).getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
-        console.log(adat)
+    let ajax = new Ajax(token);
+  
+    ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+        if(adat){
+            $(".logged-osztaly-nev").text("Üdvözöllek "+adat);
+            $(".login-button").hide();
+        }
+        else{
+            $(".logged-osztaly-nev").hide();
+            $(".login-button").show();
+        }
     })
 
     $(document).click(function (event) {
@@ -20,13 +28,6 @@ $(function () {
         event.stopPropagation();
     });
 
-    let megnyit = () => {
-        $("body").children().css("display", "block");
-        $(".nav").css("display", "none");
-        $("body").css("backgroundColor", "gray");
-        $(".loading").hide();
-    };
-
     $(".navopen").on("click", (event) => {
         $(".nav").slideDown(500);
         $(".navopen").hide();
@@ -40,14 +41,22 @@ $(function () {
 
     $("body").children().hide();
 
+    let megnyit = () => {
+        $("body").children().css("display", "block");
+        $(".nav").css("display", "none");
+        $("body").css("backgroundColor", "gray");
+        $(".loading").hide();
+    };
+
     let toltes = () => {
         $("body").css("backgroundColor", "white");
         $(".loading").css("display", "");
     };
-    if (isLoading) {
-        toltes();
-        setTimeout(() => {
-            megnyit();
-        }, 5500);
-    }
+
+    toltes();
+   
+    $(window).on("load",()=>{
+        megnyit();
+    })
+  
 });
