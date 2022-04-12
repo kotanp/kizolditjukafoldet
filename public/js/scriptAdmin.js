@@ -8,6 +8,7 @@ $(function () {
         let szulo = $("#tablazat");
         szulo.empty();
         let tablazat = new BejegyzesAdminTablazat(szulo, adatok);
+        
     }
 
     $(window).on("elfogadas",(event)=>{

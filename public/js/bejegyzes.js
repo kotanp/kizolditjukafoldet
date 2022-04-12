@@ -94,7 +94,7 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td>" + this.adat[index].osztaly[0].nev + "</td>"
+              "<td class="+"osztaly"+">" + this.adat[index].osztaly[0].nev + "</td>"
             );
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
