@@ -5,9 +5,9 @@ $(function () {
     ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
 
     ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
-        console.log(adat)
+       $(".osztaly-nev").text(adat);
     })
-    
+
     function bejegyzesLista(adatok){
         let szulo = $("#tablazat");
         szulo.empty();

@@ -1,36 +1,39 @@
+<link type="text/css" rel="stylesheet" href="{{ URL::asset('/css/elfelejtett-jelszo.css')}}">
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+        <a href="/" class="logo-link">
+        
+        <img src="kepek/szamalk.png"/>
+       
+        </a>
+        <div class="logo-container">
+        <div class="szamalk"><span class="main"><span class="main-alt">Számalk</span>-Szalézi</span><span class="alt">Technikum és Szakgimnázium</span></div>
+            <h2>Kizöldítjük a Földet!</h2>
+        </div>    
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+
+        <p class="kerdes">Elfelejtette a jelszavát?</p>
+        <p><span class="keres">Kérjük keresse Cséfalvay Katalint!<br>Elérhetőség:</span><span class="email-csefy">csefalvay@szamalk-szalezi.hu</span> </p>
         </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+    
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+               
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-center mt-4">
+                <a href="/">
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Rendben') }}
                 </x-button>
+                </a>
             </div>
-        </form>
+        
     </x-auth-card>
 </x-guest-layout>
