@@ -1,11 +1,18 @@
 $(function () {
+
+    const token = $('meta[name="csrf-token"]').attr("content");
+    const apivegpont = "http://localhost:8000";
     let isLoading = true;
+    new Ajax(token).getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+        console.log(adat)
+    })
 
     $(document).click(function (event) {
         $(".nav").slideUp(500, () => {
             $(".navopen").show();
         });
     });
+    
     $("main").click(function (event) {
         event.stopPropagation();
     });
