@@ -131,7 +131,7 @@ class BejegyzesekController extends Controller
     public function filterByOsztalyId($osztalyId){
         $bejegyzes = Bejegyzesek::selectRaw('sum(tevekenyseg.pontszam) as pontszam')
         ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
-        ->groupBy('osztaly_id')->having('osztaly_id','=',$osztalyId)->get();
+        ->groupBy('osztaly_id')->having('osztaly_id','=',$osztalyId)->where('bejegyzesek.allapot','=','elfogadva')->get();
         return $bejegyzes->first();
     }
 
