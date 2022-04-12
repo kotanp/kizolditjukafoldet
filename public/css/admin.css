@@ -37,6 +37,9 @@ td{
     text-align: center;
  
 }
+.elutasit{
+    background-color: red!important;
+}
 .buttons button{
     background-color: #42b72a;
     color: white;
@@ -48,6 +51,9 @@ td{
 }
 .buttons button:hover{
     background-color: #25b109;
+}
+.elutasit:hover{
+    background-color: rgb(240, 40, 40);
 }
 
 #bejegyzes_id{
