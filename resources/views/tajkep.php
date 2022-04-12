@@ -42,7 +42,9 @@
                     <select id="tevekenyseg" class="form-select form-select-sm">
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
                     </select>
-                    </div>  
+                    </div>
+                    <label for="nev">Név:</label>
+                    <input type="text" id="nev" name="nev"><br>  
                     <input type="button" id="submit" value="Küld" class="btn btn-success">
                 </fieldset> 
             </form>

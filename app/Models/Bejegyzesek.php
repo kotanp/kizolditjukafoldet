@@ -13,6 +13,7 @@ class Bejegyzesek extends Model
     protected $fillable = [
         'tevekenyseg_id',
         'osztaly_id',
+        'diak',
         'allapot',
     ];
 

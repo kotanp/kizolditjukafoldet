@@ -79,6 +79,7 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
             `<table>
                 <tr>
                     <th>Osztály</th>
+                    <th>Diák</th>
                     <th>Tevékenység</th>
                     <th>Pont</th>
                     <th>Státusz</th>
@@ -96,13 +97,14 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
             this.tablaElem.append(
               "<td class="+"osztaly"+">" + this.adat[index].osztaly[0].nev + "</td>"
             );
+            this.tablaElem.append("<td>" + this.adat[index].diak + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].allapot + "</td>");
-            this.tablaElem.append("<td class="+"buttons"+">" + "<button>Elfogadás</button>" +"</td>");
+            this.tablaElem.append("<td>" + "<button>Elfogadás</button>" +"</td>");
             this.Modosit = this.tablaElem.children("td:last").children("button");
             this.Modosit.on("click",()=>{this.kattintasTrigger("elfogadas",adat[index]);});
-            this.tablaElem.append("<td class="+"buttons"+">" + "<button class="+"elutasit"+">Elutasítás</button>" +"</td>");
+            this.tablaElem.append("<td>" + "<button>Elutasítás</button>" +"</td>");
             this.Torles = this.tablaElem.children("td:last").children("button");
             this.Torles.on("click",()=>{this.kattintasTrigger("elutasitas",adat[index]);});
 

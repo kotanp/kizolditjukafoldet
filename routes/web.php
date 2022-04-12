@@ -38,7 +38,6 @@ Route::get('/reset', function () {
 
 ##BEJEGYZES
 Route::get('/bejegyzesek', [BejegyzesekController::class, 'index']);
-
 Route::get('/bejegyzesek/osztaly', [BejegyzesekController::class, 'expandOsztaly']);
 Route::get('/bejegyzesek/expand', [BejegyzesekController::class, 'expand']);
 Route::get('/bejegyzesek/sortbytev', [BejegyzesekController::class, 'sortByTevekenyseg']);
@@ -46,9 +45,7 @@ Route::get('/bejegyzesek/filterbyoszt', [BejegyzesekController::class, 'filterBy
 Route::get('/bejegyzesek/filterbyoszt/{osztalyId}', [BejegyzesekController::class, 'filterByOsztalyId']);
 Route::get('/bejegyzesek/listbyoszt/{osztalyId}', [BejegyzesekController::class, 'listByOsztaly']);
 Route::get('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'show']);
-
 Route::post('/bejegyzes', [BejegyzesekController::class, 'store']);
-
 
 ##TEVEKENYSEG
 Route::get('/tevekenysegek', [TevekenysegController::class, 'index']);
@@ -56,6 +53,7 @@ Route::get('/tevekenysegek', [TevekenysegController::class, 'index']);
 ##OSZTALY
 Route::get('/osztalyok', [OsztalyController::class, 'index']);
 
+##ADMIN
 Route::middleware(['auth'])->group(function () {
     Route::get('/bejegyzesek/tanar', [BejegyzesekController::class, 'userBejegyzes']);
     Route::put('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'update']);
