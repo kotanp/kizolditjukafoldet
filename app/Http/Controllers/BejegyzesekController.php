@@ -40,6 +40,7 @@ class BejegyzesekController extends Controller
         $bejegyzes = new Bejegyzesek();
         $bejegyzes->tevekenyseg_id = $request->tevekenyseg_id;
         $bejegyzes->osztaly_id = $request->osztaly_id;
+        $bejegyzes->diak = $request->diak;
         $bejegyzes->allapot = $request->allapot;
         $bejegyzes->save();
     }

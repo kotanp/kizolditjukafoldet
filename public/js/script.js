@@ -143,8 +143,10 @@ $(function () {
     $("#submit").on("click",function(){
         let osztaly_id=$("#osztaly option:selected").val();
         let tevekenyseg_id=$("#tevekenyseg option:selected").val();
+        let diak=$("#nev").val();
         let ujAdat={
             "osztaly_id":osztaly_id,
+            "diak":diak,
             "tevekenyseg_id":tevekenyseg_id,
             "allapot":"jóváhagyásra vár",
         };
