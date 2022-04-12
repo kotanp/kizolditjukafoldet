@@ -4,6 +4,10 @@ $(function () {
     const apivegpont = "http://localhost:8000";
     ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
 
+    ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+        console.log(adat)
+    })
+    
     function bejegyzesLista(adatok){
         let szulo = $("#tablazat");
         szulo.empty();
