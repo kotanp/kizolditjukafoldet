@@ -1,29 +1,25 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-table, td, th {
-   
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+table,
+td,
+th {
     border-collapse: collapse;
     padding: 10px;
     padding: 1em;
-   
-     
-    
-}table{
-    width: 100%;  
-    height: 90%;
-    
 }
-td{
+table {
+    width: 100%;
+    height: 90%;
+}
+td {
     border: 1px solid;
     border-color: rgb(214, 210, 210);
 }
 
-.osztaly{
-
-    border-left: none!important;
+.osztaly {
+    border-left: none !important;
 }
-.osztaly::before{
-    content: ' ';
+.osztaly::before {
+    content: " ";
     width: 7.5px;
     height: 7.5px;
     background-color: red;
@@ -31,16 +27,14 @@ td{
     margin: auto;
     margin-bottom: 2.5px;
     margin-right: 5px;
-
 }
-.buttons{
+.buttons {
     text-align: center;
- 
 }
-.elutasit{
-    background-color: red!important;
+.elutasit {
+    background-color: red !important;
 }
-.buttons button{
+.buttons button {
     background-color: #42b72a;
     color: white;
     border: none;
@@ -49,78 +43,98 @@ td{
     width: 100%;
     cursor: pointer;
 }
-.buttons button:hover{
+.buttons button:hover {
     background-color: #25b109;
 }
-.elutasit:hover{
+.elutasit:hover {
     background-color: rgb(240, 40, 40);
 }
 
-#bejegyzes_id{
+#bejegyzes_id {
     display: none;
 }
 
-*{
-    font-family: 'Poppins', sans-serif;
+* {
+    font-family: "Poppins", sans-serif;
 }
 
-nav{
-   background-color: white;
-   padding: 1rem;
-   display: grid;
-   grid-template-rows:5em auto 2em;
-   grid-template-columns: 100%;
-   gap:2em;
-   border-left: 1px solid  rgb(214, 210, 210);
-   border-right: 1px solid  rgb(214, 210, 210);
-   border-bottom: 1px solid rgb(214, 210, 210);
-   overflow-y:auto;
-   width: 10em;
-   
-}   
+nav {
+    background-color: white;
+    border-bottom: 1px solid rgb(214, 210, 210);
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
 
-nav .linkek{
+nav .linkek {
     margin-top: 1rem;
     display: flex;
-    flex-direction: column;
-    gap: 1em;
-      
-
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+  
 }
-a{
-    text-decoration: none!important;
+a {
+    
+    padding: 0.5rem;
+
+    text-decoration: none !important;
     color: black;
 }
 
-.admin-main{
+.admin-main {
     height: 100vh;
-    display:flex;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     overflow: hidden;
-   
 }
-.fa-home,.fa-lock{
+.fa-home,
+.fa-lock {
     padding-right: 5px;
 }
-.admin-main main{
+.admin-main main {
     margin: auto;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    overflow-y:auto;
+    overflow-y: auto;
 }
-.logo{
+.logo {
     display: flex;
-    flex-direction: column;
-    
+   align-items: center;
+   justify-content: center;
+   gap: .5rem;
+   margin-bottom: 2rem;
 }
-.logo img{
+.logo img {
     width: 50px;
     height: auto;
 }
-#logout{
-
+#logout {
     color: rgb(33, 33, 235);
-    
+}
+@media screen and (max-width:1000px) {
+    nav{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    nav .linkek{
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:220px) {
+    .logo img{
+        margin: auto;
+    }
+    .logo{
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+    }
 }
