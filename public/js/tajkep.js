@@ -3,17 +3,19 @@ $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const apivegpont = "http://localhost:8000";
     let ajax = new Ajax(token);
-  
-    ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
-        if(adat){
-            $(".logged-osztaly-nev").text("Üdvözöllek "+adat);
-            $(".login-button").hide();
+    
+    ajax.getAjax(apivegpont+"/islogged",(adat)=>{
+        if (JSON.parse(adat)) {
+            ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+                $(".logged-osztaly-nev").text("Üdvözöllek "+adat);
+                $(".login-button").hide();
+            });
         }
         else{
             $(".logged-osztaly-nev").hide();
             $(".login-button").show();
         }
-    })
+    });
 
     $(document).click(function (event) {
         $(".nav").slideUp(500, () => {

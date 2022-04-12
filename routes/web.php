@@ -5,6 +5,7 @@ use App\Http\Controllers\BejegyzesekController;
 use App\Http\Controllers\TevekenysegController;
 use App\Http\Controllers\OsztalyController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +24,15 @@ Route::get('/', function () {
     return view('tajkep');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware(['auth']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/reset', function () {
-    return view('/reset');
-})->middleware(['auth']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    });
+    
+    Route::get('/reset', function () {
+        return view('/reset');
+    });
+});
 
 
 ##BEJEGYZES
@@ -52,6 +51,8 @@ Route::get('/tevekenysegek', [TevekenysegController::class, 'index']);
 
 ##OSZTALY
 Route::get('/osztalyok', [OsztalyController::class, 'index']);
+
+Route::get('/islogged', [AuthenticatedSessionController::class, 'isLogged']);
 
 ##ADMIN
 Route::middleware(['auth'])->group(function () {

@@ -73,4 +73,13 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/admin');
     }
+
+    public function isLogged(){
+        if (Auth::user()) {
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
 }
