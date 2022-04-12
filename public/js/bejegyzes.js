@@ -99,8 +99,13 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
             this.tablaElem.append("<td>" + this.adat[index].allapot + "</td>");
-            this.tablaElem.append("<td>" + "<button>Elfogadás</button>" + "</td>");
+            this.tablaElem.append("<td>" + "<button id='elfogad'>Elfogadás</button>" + "<button id='elutasit'>Elutasítás</button>" +"</td>");
+            // this.statuszElfogad = $("#elfogad");
+            // this.statuszElfogad = this.tablaElem.children("td:last").children("button");
+            // this.statuszElfogad.on("click",()=>{this.kattintasTrigger("elfogadas",adat[index]);});
+            // this.statuszElutasit = $("#elutasit");
             this.Modosit = this.tablaElem.children("td:last").children("button");
+            // this.statuszElutasit.on("click",()=>{this.kattintasTrigger("elutasitas",adat[index]);});
             this.Modosit.on("click",()=>{this.kattintasTrigger("elfogadas",adat[index]);});
         }
     }
