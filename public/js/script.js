@@ -1,12 +1,11 @@
 $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const ajax = new Ajax(token);
-    const apivegpont = "http://localhost:8000";
     let pontNovekvo = "/bejegyzesek/sortbytev?_sort=pontszam";
     let pontCsokkeno = "/bejegyzesek/sortbytev?_sort=pontszam&_order=desc";
-    ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
-    ajax.getAjax(apivegpont+"/tevekenysegek", tevekenysegLista);
-    ajax.getAjax(apivegpont+"/osztalyok", osztalyLista);
+    ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
+    ajax.getAjax("/tevekenysegek", tevekenysegLista);
+    ajax.getAjax("/osztalyok", osztalyLista);
     
     let osszesKep = document.querySelector("body").querySelectorAll("img");
     let hatterElemek = [$(".sun-container"), $(".vizpart"), $(".cloud")];
@@ -70,11 +69,11 @@ $(function () {
         let kivalasztottszures=$(this, " option:selected").val();
         switch (kivalasztottszures) {
             case "csokkeno":
-                apivp=apivegpont+pontCsokkeno;
+                apivp=pontCsokkeno;
                 break;
         
             case "novekvo":
-                apivp=apivegpont+pontNovekvo;
+                apivp=pontNovekvo;
                 break;
         }
         ajax.getAjax(apivp,bejegyzesLista);
@@ -119,10 +118,10 @@ $(function () {
     $("#osztaly").on("change",()=>{
         let id = $("#osztaly option:selected").val();
         if (id!=='') {
-            ajax.getAjax(apivegpont+"/bejegyzesek/listbyoszt/"+id, bejegyzesLista);
+            ajax.getAjax("/bejegyzesek/listbyoszt/"+id, bejegyzesLista);
         }
         else{
-            ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+            ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }
         
         getOsztalyPontszam();
@@ -137,7 +136,7 @@ $(function () {
     function getOsztalyPontszam(){
         let osztaly_id=$("#osztaly option:selected").val();
         szurkitMindent();
-        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt/"+osztaly_id,(adat)=>{egyetSzinez(adat.pontszam)});
+        ajax.getAjax("/bejegyzesek/filterbyoszt/"+osztaly_id,(adat)=>{egyetSzinez(adat.pontszam)});
     }
 
     $("#submit").on("click",function(){
@@ -151,23 +150,23 @@ $(function () {
             "allapot":"jóváhagyásra vár",
         };
         if (osztaly_id!=='' && tevekenyseg_id!=='') {
-            ajax.postAjax(apivegpont+"/bejegyzes", ujAdat);
-            ajax.getAjax(apivegpont+"/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
+            ajax.postAjax("/bejegyzes", ujAdat);
+            ajax.getAjax("/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
         }
         else{
-            ajax.getAjax(apivegpont+"/bejegyzesek/expand", bejegyzesLista);
+            ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }
-        ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
+        ajax.getAjax("/bejegyzesek/filterbyoszt", googleChart);
         getOsztalyPontszam();
     });
 
-    ajax.getAjax(apivegpont+"/bejegyzesek/filterbyoszt", googleChart);
+    ajax.getAjax("/bejegyzesek/filterbyoszt", googleChart);
 
     $("#logout").on("click", (event)=>{
         let ujAdat ={
             _token:event.detail._token
         }
-        ajax.postAjax(apivegpont+"/logout",ujAdat);
+        ajax.postAjax("/logout",ujAdat);
     });
 
 });

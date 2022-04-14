@@ -1,12 +1,11 @@
 $(function () {
 
     const token = $('meta[name="csrf-token"]').attr("content");
-    const apivegpont = "http://localhost:8000";
     let ajax = new Ajax(token);
     
-    ajax.getAjax(apivegpont+"/islogged",(adat)=>{
+    ajax.getAjax("/islogged",(adat)=>{
         if (JSON.parse(adat)) {
-            ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+            ajax.getAjax("/osztaly/tanar",(adat)=>{
                 $(".logged-osztaly-nev").text("Üdvözöllek "+adat);
                 $(".login-button").hide();
             });

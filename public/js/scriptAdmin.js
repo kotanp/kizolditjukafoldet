@@ -1,10 +1,9 @@
 $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const ajax = new Ajax(token);
-    const apivegpont = "http://localhost:8000";
-    ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
+    ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
 
-    ajax.getAjax(apivegpont+"/osztaly/tanar",(adat)=>{
+    ajax.getAjax("/osztaly/tanar",(adat)=>{
        $(".osztaly-nev").text(adat);
     })
 
@@ -21,13 +20,13 @@ $(function () {
             osztaly_id:event.detail.osztaly_id,
             allapot:"elfogadva",
         };
-        ajax.putAjax(apivegpont+"/bejegyzes",event.detail.id,ujAdat);
-        ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
+        ajax.putAjax("/bejegyzes",event.detail.id,ujAdat);
+        ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
     });
 
     $(window).on("elutasitas",(event)=>{
-        ajax.deleteAjax(apivegpont+"/bejegyzes",event.detail.id);
-        ajax.getAjax(apivegpont+"/bejegyzesek/tanar", bejegyzesLista);
+        ajax.deleteAjax("/bejegyzes",event.detail.id);
+        ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
     });
 
     $("#logout").on("click", (event)=>{
@@ -35,7 +34,7 @@ $(function () {
         let ujAdat ={
             _token:event.detail._token
         }
-        ajax.postAjax(apivegpont+"/logout",ujAdat);
+        ajax.postAjax("/logout",ujAdat);
     });
 
 });
