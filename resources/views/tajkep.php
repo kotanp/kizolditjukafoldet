@@ -32,8 +32,8 @@
             </form>
         </a>
         <a class="logged-osztaly-nev"></a>
-        <a href="/login" class="aut login-button">Bejelentkezés</a>
-        <a href="/admin" class="aut">Admin</a>
+        <a href="/login" class="aut login-button">Bejelentkezés(OFŐ)</a>
+        <a href="/admin" class="aut">Jóváhagyás(OFŐ)</a>
         </nav>
         
         <h1 class="title1">Kizöldítjük a Földet! </h1>
