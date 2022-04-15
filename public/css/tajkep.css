@@ -43,6 +43,7 @@ html{
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
+    
 }
 
 body{
@@ -198,8 +199,8 @@ body{
 }
 body,.tajkep{
 
-  max-width: 1920px!important;
-  max-height: 1080px!important;
+  max-height: 1080px;
+  max-width: 1920px;
   overflow: hidden;
 }
 .vizpart{
@@ -734,8 +735,8 @@ body,.tajkep{
   position: absolute;
   left: 0%;
   top:1%;
-  background-color: whitesmoke;
-  color: black;
+  background-color: #2da44e;
+  color: white;
   border: none;
   padding: .25rem;
   padding-left: .5rem;
