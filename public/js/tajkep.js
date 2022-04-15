@@ -13,6 +13,7 @@ $(function () {
         else{
             $(".logged-osztaly-nev").hide();
             $(".login-button").show();
+            $("#logout").hide();
         }
     });
 
