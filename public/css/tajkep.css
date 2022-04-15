@@ -3,8 +3,25 @@
 *{
   user-select: none;
 }
-html{
+.window-hibauzenet{
+  display: none;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: white!important;
   
+}
+.window-hibauzenet img{
+  filter: none;
+}
+.window-hibauzenet h1{
+  margin: auto;
+  padding: 5rem;
+  width: 100%;
+  display: block;
+}
+.window-hibauzenet h3{
+  margin-top: 1rem;
 }
 :root {
   --v3: yellowgreen;
@@ -827,3 +844,4 @@ h1{
   
  }
  }
+ 

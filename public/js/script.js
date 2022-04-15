@@ -35,6 +35,7 @@ $(function () {
         });
     }
 
+    
     function googleChart(adatok){
         let tomb = [['Osztályok', 'Pontszám', { role: 'style' }]];
         adatok.forEach((elem)=>{
@@ -45,6 +46,7 @@ $(function () {
         window.onresize = drawChart;
       
         function drawChart() {
+            
         var data = google.visualization.arrayToDataTable(tomb);
 
         var options = {
@@ -63,7 +65,7 @@ $(function () {
         chart.draw(data, options);
         }
     }
-
+    
     $("#rendezes").on("change",function(){
         let apivp="";
         let kivalasztottszures=$(this, " option:selected").val();

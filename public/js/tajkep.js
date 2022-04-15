@@ -1,16 +1,42 @@
 $(function () {
-
     const token = $('meta[name="csrf-token"]').attr("content");
     let ajax = new Ajax(token);
+   
     
-    ajax.getAjax("/islogged",(adat)=>{
-        if (JSON.parse(adat)) {
-            ajax.getAjax("/osztaly/tanar",(adat)=>{
-                $(".logged-osztaly-nev").text("Üdvözöllek "+adat);
-                $(".login-button").hide();
-            });
+
+    window.addEventListener('resize', ()=>{
+        ablakMeretEllenorzes();
+    });
+
+    
+
+    function ablakMeretEllenorzes(){
+        let magassag = window.innerHeight;
+        let hosszusag = window.innerWidth;
+        console.log(magassag)
+        console.log(hosszusag)
+        if(magassag>1080 || hosszusag >1920){
+            
+            $(".teljes-tajkep").hide();
+            $(".menu").hide();
+            $(".navopen").hide();
+            $(".window-hibauzenet").show();
         }
         else{
+            $(".teljes-tajkep").show();
+            $(".menu").show();
+            $(".navopen").show();
+            $(".window-hibauzenet").hide();
+        }
+    }
+    
+    ajax.getAjax("/islogged", (adat) => {
+        if (JSON.parse(adat)) {
+            ajax.getAjax("/osztaly/tanar", (adat) => {
+                $(".logged-osztaly-nev").text("Üdvözöllek " + adat);
+                $(".login-button").hide();
+            });
+        } else {
             $(".logged-osztaly-nev").hide();
             $(".login-button").show();
             $("#logout").hide();
@@ -20,9 +46,10 @@ $(function () {
     $(document).click(function (event) {
         $(".nav").slideUp(500, () => {
             $(".navopen").show();
+            ablakMeretEllenorzes();
         });
     });
-    
+
     $("main").click(function (event) {
         event.stopPropagation();
     });
@@ -48,6 +75,7 @@ $(function () {
         $(".nav").css("display", "none");
         $("body").css("backgroundColor", "gray");
         $(".loading").hide();
+        ablakMeretEllenorzes();
     };
 
     let toltes = () => {
@@ -56,9 +84,9 @@ $(function () {
     };
 
     toltes();
-   
-    $(window).on("load",()=>{
+
+    $(window).on("load", () => {
         megnyit();
-    })
-  
+
+    });
 });
