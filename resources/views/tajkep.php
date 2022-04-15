@@ -166,7 +166,7 @@
         <img src="kepek/tavirozsa1.svg" class="tavirozsa tavirozsa4"/>
         <img src="kepek/tavirozsa2.svg" class="tavirozsa tavirozsa2"/>
         <img src="kepek/tavirozsa2.svg" class="tavirozsa tavirozsa3"/>
-        
+        <img src="kepek/fa.svg" class="faronk"/>
       </div>
 
       <div class="lights">
