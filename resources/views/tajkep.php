@@ -20,6 +20,7 @@
     />
     <title>Document</title>
   </head>
+    
     <button class="navopen">Menu</button>
     <div class="nav" >
     
@@ -100,6 +101,12 @@
    
   </div>
   <body>
+    <div class="window-hibauzenet">
+      <h1 >Sajnos az alkalmazás maximum 1920x1080px felbontáson fut.</h1>
+      <img src="/kepek/banner.png"/>
+      <h3>Sajnáljuk a kellemetlenséget!<br>Megértésed köszönjük!</h3>
+    </div>
+    <div class="teljes-tajkep">
     <div class="tajkep">
       <div class="sun-container">
         <div class="cloud clouds"></div>
@@ -172,7 +179,7 @@
         <img src="kepek/tavirozsa1.svg" class="tavirozsa tavirozsa4"/>
         <img src="kepek/tavirozsa2.svg" class="tavirozsa tavirozsa2"/>
         <img src="kepek/tavirozsa2.svg" class="tavirozsa tavirozsa3"/>
-        
+        <img src="kepek/fa.svg" class="faronk"/>
       </div>
 
       <div class="lights">
@@ -206,6 +213,7 @@
         </div>
       </div>
       
+    </div>
     </div>
   </body>
 </html>

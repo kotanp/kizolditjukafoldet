@@ -3,6 +3,26 @@
 *{
   user-select: none;
 }
+.window-hibauzenet{
+  display: none;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: white!important;
+  
+}
+.window-hibauzenet img{
+  filter: none;
+}
+.window-hibauzenet h1{
+  margin: auto;
+  padding: 5rem;
+  width: 100%;
+  display: block;
+}
+.window-hibauzenet h3{
+  margin-top: 1rem;
+}
 :root {
   --v3: yellowgreen;
   --cloud: #fea798;
@@ -40,6 +60,7 @@
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
+    
 }
 
 body{
@@ -152,6 +173,24 @@ body{
   left: 15%;
   height: 1000px;
 }
+.faronk{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 30%;
+  left: -10%;
+  height: 50px;
+  animation: uszik 100s infinite;
+  z-index: -50;
+}
+@-webkit-keyframes uszik{
+  25%{
+  
+  }
+  100%{
+    
+    left: 110%;
+  }
+}
 .tavirozsa{
   position: absolute;
   transform: translate(-50%,-50%);
@@ -237,7 +276,10 @@ body,.tajkep{
 }
 .felirat{
   font-size: 20px;
+  position: absolute;
+  transform: translate(-50%,-50%);
   top: 100%;
+  left: 65%;
   display: flex;
   text-align: center;
   z-index: 500;
@@ -710,8 +752,8 @@ body,.tajkep{
   position: absolute;
   left: 0%;
   top:1%;
-  background-color: whitesmoke;
-  color: black;
+  background-color: #2da44e;
+  color: white;
   border: none;
   padding: .25rem;
   padding-left: .5rem;
@@ -802,3 +844,4 @@ h1{
   
  }
  }
+ 
