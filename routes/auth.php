@@ -57,3 +57,5 @@ Route::middleware('auth')->group(function () {
     Route::post('reset', [AuthenticatedSessionController::class, 'reset'])
                 ->name('reset.password');
 });
+
+Route::get('/islogged', [AuthenticatedSessionController::class, 'isLogged']);

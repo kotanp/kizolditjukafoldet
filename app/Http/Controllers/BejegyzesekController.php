@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bejegyzesek;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class BejegyzesekController extends Controller
 {
@@ -136,15 +137,38 @@ class BejegyzesekController extends Controller
         return $bejegyzes->first();
     }
 
-    public function userBejegyzes(){
+    public function filterByTanar(){
         $user = Auth::user();
         $bejegyzesek = Bejegyzesek::with('osztaly')->with('tevekenyseg')->where('osztaly_id','=',$user->osztaly_id)->where('allapot','=','jóváhagyásra vár')->get();
+        $bejegyzesSzam = Bejegyzesek::selectRaw('tevekenyseg_id as tevekenyseg_id, count(tevekenyseg_id) as db')->where('osztaly_id','=',$user->osztaly_id)->where('allapot','=','elfogadva')->groupBy('tevekenyseg_id')->get();
+
+        foreach ($bejegyzesek as $bejegyzes) {
+            $bejegyzes->tevekenyseg_count = $bejegyzesSzam->filter(function($value) use ($bejegyzes){
+                if ($value->tevekenyseg_id === $bejegyzes->tevekenyseg_id) {                    
+                    return $value;  
+                }
+            })->values()->first();
+            if ($bejegyzes->tevekenyseg_count == null) {
+                $bejegyzes->tevekenyseg_count = collect(['db' => 0]);
+            }   
+        }
         return $bejegyzesek;
     }
 
     public function listByOsztaly($osztalyId){
         $bejegyzesek = Bejegyzesek::with('osztaly')->with('tevekenyseg')->where('osztaly_id','=',$osztalyId)->get();
         return $bejegyzesek;
+    }
+
+    public function elfogadottBejegyzesek($osztalyId, $tevekenysegId){
+        $bejegyzesSzam = Bejegyzesek::where('allapot','=','elfogadva')->where('osztaly_id','=',$osztalyId)->where('tevekenyseg_id','=',$tevekenysegId)->count();
+        return $bejegyzesSzam;
+    }
+
+    public function groupByTevekenyseg(){
+        $user = Auth::user();
+        $bejegyzesSzam = Bejegyzesek::selectRaw('tevekenyseg_id as tevekenyseg_id, count(tevekenyseg_id) as db')->where('osztaly_id','=',$user->osztaly_id)->where('allapot','=','elfogadva')->groupBy('tevekenyseg_id')->get();
+        return $bejegyzesSzam;
     }
 
 

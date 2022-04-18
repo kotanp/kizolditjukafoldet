@@ -1,11 +1,11 @@
 $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const ajax = new Ajax(token);
-    ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
+    ajax.getAjax("/bejegyzesek/filterbytanar", bejegyzesLista);
 
     ajax.getAjax("/osztaly/tanar",(adat)=>{
        $(".osztaly-nev").text(adat);
-    })
+    });
 
     function bejegyzesLista(adatok){
         let szulo = $("#tablazat");
@@ -15,13 +15,26 @@ $(function () {
     }
 
     $(window).on("elfogadas",(event)=>{
-        let ujAdat = {
-            tevekenyseg_id:event.detail.tevekenyseg_id,
-            osztaly_id:event.detail.osztaly_id,
-            allapot:"elfogadva",
-        };
-        ajax.putAjax("/bejegyzes",event.detail.id,ujAdat);
-        ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
+        ajax.getAjax("/bejegyzesek/elfogadott/"+event.detail.osztaly_id+"/"+event.detail.tevekenyseg_id, (adat)=>{
+            if (adat==2){
+                alert("Nem lehet egy tevékenységből kettőnél többet jóváhagyni!");
+            }
+            else{
+                let ujAdat = {
+                    tevekenyseg_id:event.detail.tevekenyseg_id,
+                    osztaly_id:event.detail.osztaly_id,
+                    allapot:"elfogadva",
+                };
+                ajax.putAjax("/bejegyzes",event.detail.id,ujAdat);
+                ajax.getAjax("/bejegyzesek/filterbytanar", bejegyzesLista);
+                ajax.getAjax("/bejegyzesek/groupbytev",(adat)=>{
+                    adat.forEach(element => {
+                        $("."+element.tevekenyseg_id).text(element.db);
+                    });
+                 });
+            }
+        });
+        
     });
 
     $(window).on("elutasitas",(event)=>{

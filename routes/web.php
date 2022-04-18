@@ -5,7 +5,7 @@ use App\Http\Controllers\BejegyzesekController;
 use App\Http\Controllers\TevekenysegController;
 use App\Http\Controllers\OsztalyController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+//use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', function () {
+    Route::get('/jovahagyas', function () {
         return view('admin');
     });
     
@@ -44,7 +44,7 @@ Route::get('/bejegyzesek/filterbyoszt', [BejegyzesekController::class, 'filterBy
 Route::get('/bejegyzesek/filterbyoszt/{osztalyId}', [BejegyzesekController::class, 'filterByOsztalyId']);
 Route::get('/bejegyzesek/listbyoszt/{osztalyId}', [BejegyzesekController::class, 'listByOsztaly']);
 Route::get('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'show']);
-Route::post('/bejegyzes', [BejegyzesekController::class, 'store']);
+Route::post('/bejegyzes', [BejegyzesekController::class, 'store'])->name('bejegyzes.post');
 
 ##TEVEKENYSEG
 Route::get('/tevekenysegek', [TevekenysegController::class, 'index']);
@@ -52,12 +52,16 @@ Route::get('/tevekenysegek', [TevekenysegController::class, 'index']);
 ##OSZTALY
 Route::get('/osztalyok', [OsztalyController::class, 'index']);
 
-Route::get('/islogged', [AuthenticatedSessionController::class, 'isLogged']);
+
 
 ##ADMIN
 Route::middleware(['auth'])->group(function () {
-    Route::get('/bejegyzesek/tanar', [BejegyzesekController::class, 'userBejegyzes']);
+    Route::get('/bejegyzesek/filterbytanar', [BejegyzesekController::class, 'filterByTanar']);
+    Route::get('/bejegyzesek/groupbytev', [BejegyzesekController::class, 'groupByTevekenyseg']);
     Route::put('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'update']);
     Route::delete('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'destroy']);
     Route::get('/osztaly/tanar', [OsztalyController::class, 'loggedInOsztaly']);
+
 });
+
+Route::get('/bejegyzesek/elfogadott/{oszatlyId}/{teveknysegId}', [BejegyzesekController::class, 'elfogadottBejegyzesek']);

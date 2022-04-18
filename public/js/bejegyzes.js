@@ -25,10 +25,10 @@ class BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td>" + this.adat[index].osztaly[0].nev + "</td>"
+              "<td>" + this.adat[index].osztaly.nev + "</td>"
             );
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.tevekenyseg_nev + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.pontszam + "</td>");
             if(this.adat[index].allapot==="elfogadva"){
                 this.tablaElem.append("<td class="+"allapot-kesz"+">" + this.adat[index].allapot + "</td>");
             }
@@ -62,9 +62,9 @@ class BejegyzesKisTablazat extends BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td>" + this.adat[index].osztaly[0].nev + "\nPontérték: " + this.adat[index].tevekenyseg[0].pontszam + "</td>"
+              "<td>" + this.adat[index].osztaly.nev + "\nPontérték: " + this.adat[index].tevekenyseg.pontszam + "</td>"
             );
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "\nStátusz: " + this.adat[index].allapot + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.tevekenyseg_nev + "\nStátusz: " + this.adat[index].allapot + "</td>");
         }
     }
 }
@@ -82,6 +82,7 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
                     <th>Diák</th>
                     <th>Tevékenység</th>
                     <th>Pont</th>
+                    <th>Elfogadott(db)</th>
                     <th>Státusz</th>
                     <th>Jóváhagyás</th>
                     <th>Törlés</th>
@@ -95,11 +96,12 @@ class BejegyzesAdminTablazat extends BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td class="+"osztaly"+">" + this.adat[index].osztaly[0].nev + "</td>"
+              "<td class="+"osztaly"+">" + this.adat[index].osztaly.nev + "</td>"
             );
             this.tablaElem.append("<td>" + this.adat[index].diak + "</td>");
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].tevekenyseg_nev + "</td>");
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg[0].pontszam + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.tevekenyseg_nev + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.pontszam + "</td>");
+            this.tablaElem.append("<td>"+this.adat[index].tevekenyseg_count.db+"</td>");
             this.tablaElem.append("<td>" + this.adat[index].allapot + "</td>");
             this.tablaElem.append("<td class="+"buttons"+">" + "<button>Elfogadás</button>" +"</td>");
             this.Modosit = this.tablaElem.children("td:last").children("button");

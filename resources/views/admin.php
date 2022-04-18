@@ -19,7 +19,7 @@
     <nav>
     <div class="logo">
         <img src="kepek/szamalk.png">
-        <h3>Admin - <span class="osztaly-nev">Osztaly Neve</span></h3>
+        <h3>OFŐ - <span class="osztaly-nev">Osztaly Neve</span></h3>
     </div>
     <div class="linkek">
         <a href="/" class="aut">Kezdőlap</a>

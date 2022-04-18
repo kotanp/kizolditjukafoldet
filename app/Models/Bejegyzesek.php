@@ -18,10 +18,10 @@ class Bejegyzesek extends Model
     ];
 
     public function osztaly(){
-        return $this->hasMany(Osztaly::class, 'id', 'osztaly_id');
+        return $this->hasOne(Osztaly::class, 'id', 'osztaly_id');
     }
 
     public function tevekenyseg(){
-        return $this->hasMany(Tevekenyseg::class, 'id', 'tevekenyseg_id');
+        return $this->hasOne(Tevekenyseg::class, 'id', 'tevekenyseg_id');
     }
 }

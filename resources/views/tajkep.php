@@ -33,7 +33,7 @@
         </a>
         <a class="logged-osztaly-nev"></a>
         <a href="/login" class="aut login-button">Bejelentkezés(OFŐ)</a>
-        <a href="/admin" class="aut">Jóváhagyás(OFŐ)</a>
+        <a href="/jovahagyas" class="aut">Jóváhagyás(OFŐ)</a>
         </nav>
         
         <h1 class="title1">Kizöldítjük a Földet! </h1>
@@ -45,12 +45,18 @@
                     <select id="osztaly"  class="form-select form-select-sm">
                         <option value="" selected>Válassz osztályt</option>
                     </select>
+                    <div>
+                      <p id="osztalyerror"></p>
+                    </div>
                     <select id="tevekenyseg" class="form-select form-select-sm">
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
                     </select>
                     </div>
                     <div class="nev-container">
                     <input type="text" id="nev" class="form-control form-select-sm" name="nev" placeholder="Név"><br>  
+                    </div>
+                    <div>
+                      <p id="neverror"></p>
                     </div>
                     <input type="button" id="submit" value="Küld" class="btn btn-success">
                 </fieldset> 
