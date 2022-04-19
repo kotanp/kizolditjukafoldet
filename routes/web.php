@@ -60,7 +60,5 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'update']);
     Route::delete('/bejegyzes/{bejegyzesId}', [BejegyzesekController::class, 'destroy']);
     Route::get('/osztaly/tanar', [OsztalyController::class, 'loggedInOsztaly']);
-
+    Route::get('/bejegyzesek/elfogadott/{oszatlyId}/{teveknysegId}', [BejegyzesekController::class, 'elfogadottBejegyzesek']);
 });
-
-Route::get('/bejegyzesek/elfogadott/{oszatlyId}/{teveknysegId}', [BejegyzesekController::class, 'elfogadottBejegyzesek']);
