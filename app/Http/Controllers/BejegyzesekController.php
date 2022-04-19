@@ -101,7 +101,9 @@ class BejegyzesekController extends Controller
     }
 
     public function expand(){
-        $bejegyzes = Bejegyzesek::with('osztaly')->with('tevekenyseg')->get();
+        $bejegyzes = Bejegyzesek::select('osztaly.nev','tevekenyseg.tevekenyseg_nev','tevekenyseg.pontszam','bejegyzesek.allapot')
+        ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
+        ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')->get();
         return $bejegyzes;
     }
 
@@ -110,16 +112,16 @@ class BejegyzesekController extends Controller
         $column = $request->_sort;
         if ($request->has('_order')){
             $order = $request->_order;
-            $bejegyzes = Bejegyzesek::select('bejegyzesek.id','bejegyzesek.osztaly_id','bejegyzesek.tevekenyseg_id','bejegyzesek.allapot')
+            $bejegyzes = Bejegyzesek::select('osztaly.nev','tevekenyseg.tevekenyseg_nev','tevekenyseg.pontszam','bejegyzesek.allapot')
             ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
             ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
-            ->orderBy($column, $order)->with('osztaly')->with('tevekenyseg')->get();
+            ->orderBy($column, $order)->get();
         }
         else{
-            $bejegyzes = Bejegyzesek::select('bejegyzesek.id','bejegyzesek.osztaly_id','bejegyzesek.tevekenyseg_id','bejegyzesek.allapot')
+            $bejegyzes = Bejegyzesek::select('osztaly.nev','tevekenyseg.tevekenyseg_nev','tevekenyseg.pontszam','bejegyzesek.allapot')
             ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
             ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
-            ->orderBy($column)->with('osztaly')->with('tevekenyseg')->get();
+            ->orderBy($column)->get();
         }
         return $bejegyzes;
     }
@@ -158,7 +160,9 @@ class BejegyzesekController extends Controller
     }
 
     public function listByOsztaly($osztalyId){
-        $bejegyzesek = Bejegyzesek::with('osztaly')->with('tevekenyseg')->where('osztaly_id','=',$osztalyId)->get();
+        $bejegyzesek = Bejegyzesek::select('osztaly.nev','tevekenyseg.tevekenyseg_nev','tevekenyseg.pontszam','bejegyzesek.allapot')
+        ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
+        ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')->where('osztaly_id','=',$osztalyId)->get();
         return $bejegyzesek;
     }
 

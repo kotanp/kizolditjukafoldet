@@ -25,10 +25,10 @@ class BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td>" + this.adat[index].osztaly.nev + "</td>"
+              "<td>" + this.adat[index].nev + "</td>"
             );
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.tevekenyseg_nev + "</td>");
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.pontszam + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg_nev + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].pontszam + "</td>");
             if(this.adat[index].allapot==="elfogadva"){
                 this.tablaElem.append("<td class="+"allapot-kesz"+">" + this.adat[index].allapot + "</td>");
             }
