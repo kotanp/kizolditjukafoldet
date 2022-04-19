@@ -123,7 +123,6 @@ $(function () {
             }
         };
 
-        console.log(pontszam);
         szinez(szinezheto);
     };
 
@@ -167,22 +166,25 @@ $(function () {
             ajax.getAjax("/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
         }
         else if (osztaly_id===''  && diak===''){
-            $("#osztalyerror").text('Nem adtál meg osztályt!');
+            $("#neverror").text('Nem adtál meg osztályt!');
             $("#neverror").text('Nem adtál meg nevet!');
             ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }
         else if(diak===''){
-            $("#osztalyerror").empty();
             $("#neverror").text('Nem adtál meg nevet!');
             ajax.getAjax("/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
         }
         else if(osztaly_id===''){
             $("#neverror").empty();
-            $("#osztalyerror").text('Nem adtál meg osztályt!');
+            $("#neverror").text('Nem adtál meg osztályt!');
+            ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
+        }
+        else if(tevekenyseg_id===''){
+            $("#neverror").empty();
+            $("#neverror").text('Nem adtál meg tevékenységet!');
             ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }      
         else{
-            $("#osztalyerror").empty();
             $("#neverror").empty();
             ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }

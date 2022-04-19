@@ -13,8 +13,6 @@ $(function () {
     function ablakMeretEllenorzes(){
         let magassag = window.innerHeight;
         let hosszusag = window.innerWidth;
-        console.log(magassag)
-        console.log(hosszusag)
         if(magassag>1080 || hosszusag >1920){
             
             $(".teljes-tajkep").hide();

@@ -26,13 +26,13 @@
     
     <main >
     <button class="navclose">X</button>
-        <nav>
+        <nav>        
+        <a class="logged-osztaly-nev"></a>
         <a href="/" class="aut" id="logout">Kijelentkezés
             <form method="POST" action="/logout">
                 <input type="hidden" name="_token">
             </form>
         </a>
-        <a class="logged-osztaly-nev"></a>
         <a href="/login" class="aut login-button">Bejelentkezés(OFŐ)</a>
         <a href="/jovahagyas" class="aut">Jóváhagyás(OFŐ)</a>
         </nav>
@@ -46,9 +46,6 @@
                     <select id="osztaly"  class="form-select form-select-sm">
                         <option value="" selected>Válassz osztályt</option>
                     </select>
-                    <div>
-                      <p id="osztalyerror"></p>
-                    </div>
                     <select id="tevekenyseg" class="form-select form-select-sm">
                         <option value="" disabled selected hidden >Válassz tevékenységet</option>
                     </select>

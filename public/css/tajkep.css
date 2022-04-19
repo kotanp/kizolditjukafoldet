@@ -827,6 +827,10 @@ h1{
 }
 }
 
+#neverror{
+  color: red;
+}
+
 @media screen and (max-height:300px) {
  
   .loading img{
