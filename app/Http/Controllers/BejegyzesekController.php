@@ -105,18 +105,20 @@ class BejegyzesekController extends Controller
         return $bejegyzes;
     }
 
-    public function sortByTevekenyseg(Request $request)
+    public function sortBy(Request $request)
     {
         $column = $request->_sort;
         if ($request->has('_order')){
             $order = $request->_order;
             $bejegyzes = Bejegyzesek::select('bejegyzesek.id','bejegyzesek.osztaly_id','bejegyzesek.tevekenyseg_id','bejegyzesek.allapot')
             ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
+            ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
             ->orderBy($column, $order)->with('osztaly')->with('tevekenyseg')->get();
         }
         else{
             $bejegyzes = Bejegyzesek::select('bejegyzesek.id','bejegyzesek.osztaly_id','bejegyzesek.tevekenyseg_id','bejegyzesek.allapot')
             ->join('tevekenyseg','bejegyzesek.tevekenyseg_id','=','tevekenyseg.id')
+            ->join('osztaly','bejegyzesek.osztaly_id','=','osztaly.id')
             ->orderBy($column)->with('osztaly')->with('tevekenyseg')->get();
         }
         return $bejegyzes;
@@ -162,12 +164,6 @@ class BejegyzesekController extends Controller
 
     public function elfogadottBejegyzesek($osztalyId, $tevekenysegId){
         $bejegyzesSzam = Bejegyzesek::where('allapot','=','elfogadva')->where('osztaly_id','=',$osztalyId)->where('tevekenyseg_id','=',$tevekenysegId)->count();
-        return $bejegyzesSzam;
-    }
-
-    public function groupByTevekenyseg(){
-        $user = Auth::user();
-        $bejegyzesSzam = Bejegyzesek::selectRaw('tevekenyseg_id as tevekenyseg_id, count(tevekenyseg_id) as db')->where('osztaly_id','=',$user->osztaly_id)->where('allapot','=','elfogadva')->groupBy('tevekenyseg_id')->get();
         return $bejegyzesSzam;
     }
 

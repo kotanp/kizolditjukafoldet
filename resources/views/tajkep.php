@@ -64,8 +64,16 @@
         
         <div id="chart_div" class="chart"></div>
           <section class="rendezo">
-                  <label for="rendezes">Pont szerint rendezés:</label><br>
-                  <select name="rendezes" id="rendezes" class="form-select form-select-sm">
+                  <label for="pontrendezes">Pont szerint rendezés:</label><br>
+                  <select name="pontrendezes" id="pontrendezes" class="form-select form-select-sm">
+                      <option value="" disabled selected hidden>Válassz rendezést</option>
+                      <option value="novekvo">Növekvő</option>
+                      <option value="csokkeno">Csökkenő</option>                   
+                    </select>
+          </section>
+          <section class="rendezo">
+                  <label for="nevrendezes">Osztály név szerint rendezés:</label><br>
+                  <select name="nevrendezes" id="nevrendezes" class="form-select form-select-sm">
                       <option value="" disabled selected hidden>Válassz rendezést</option>
                       <option value="novekvo">Növekvő</option>
                       <option value="csokkeno">Csökkenő</option>                   

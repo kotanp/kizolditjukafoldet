@@ -1,8 +1,10 @@
 $(function () {
     const token = $('meta[name="csrf-token"]').attr("content");
     const ajax = new Ajax(token);
-    let pontNovekvo = "/bejegyzesek/sortbytev?_sort=pontszam";
-    let pontCsokkeno = "/bejegyzesek/sortbytev?_sort=pontszam&_order=desc";
+    let pontNovekvo = "/bejegyzesek/sortby?_sort=pontszam";
+    let pontCsokkeno = "/bejegyzesek/sortby?_sort=pontszam&_order=desc";
+    let nevNovekvo = "/bejegyzesek/sortby?_sort=nev";
+    let nevCsokkeno = "/bejegyzesek/sortby?_sort=nev&_order=desc";
     ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
     ajax.getAjax("/tevekenysegek", tevekenysegLista);
     ajax.getAjax("/osztalyok", osztalyLista);
@@ -70,7 +72,7 @@ $(function () {
         }
     }
 
-    $("#rendezes").on("change", function () {
+    $("#pontrendezes").on("change", function () {
         let apivp = "";
         let kivalasztottszures = $(this, " option:selected").val();
         switch (kivalasztottszures) {
@@ -80,6 +82,21 @@ $(function () {
 
             case "novekvo":
                 apivp = pontNovekvo;
+                break;
+        }
+        ajax.getAjax(apivp, bejegyzesLista);
+    });
+
+    $("#nevrendezes").on("change", function () {
+        let apivp = "";
+        let kivalasztottszures = $(this, " option:selected").val();
+        switch (kivalasztottszures) {
+            case "csokkeno":
+                apivp = nevCsokkeno;
+                break;
+
+            case "novekvo":
+                apivp = nevNovekvo;
                 break;
         }
         ajax.getAjax(apivp, bejegyzesLista);
@@ -162,15 +179,18 @@ $(function () {
             allapot: "jóváhagyásra vár",
         };
         if (osztaly_id!=='' && tevekenyseg_id!=='' && diak!=='') {
+            $("#neverror").empty();
             ajax.postAjax("/bejegyzes", ujAdat);
             ajax.getAjax("/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
         }
         else if (osztaly_id===''  && diak===''){
+            $("#neverror").empty();
             $("#neverror").text('Nem adtál meg osztályt!');
             $("#neverror").text('Nem adtál meg nevet!');
             ajax.getAjax("/bejegyzesek/expand", bejegyzesLista);
         }
         else if(diak===''){
+            $("#neverror").empty();
             $("#neverror").text('Nem adtál meg nevet!');
             ajax.getAjax("/bejegyzesek/listbyoszt/"+osztaly_id, bejegyzesLista);
         }
