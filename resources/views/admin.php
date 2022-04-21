@@ -12,7 +12,7 @@
     <script src="\js\scriptAdmin.js"></script>
     <link rel="stylesheet" href="/css/admin.css">
     
-    <title></title>
+    <title>Jóváhagyás</title>
 </head>
 <body  class="admin-main">
     
