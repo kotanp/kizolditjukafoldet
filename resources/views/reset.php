@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/newpassword.css">
     <meta name="csrf-token" content=<?php $token=csrf_token(); echo $token;?>>
-    <title>KP</title>
+    <title>Jelszó visszaállítás</title>
 </head>
 <body>
     <main>
