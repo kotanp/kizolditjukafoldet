@@ -27,11 +27,7 @@ $(function () {
                 };
                 ajax.putAjax("/bejegyzes",event.detail.id,ujAdat);
                 ajax.getAjax("/bejegyzesek/filterbytanar", bejegyzesLista);
-                ajax.getAjax("/bejegyzesek/groupbytev",(adat)=>{
-                    adat.forEach(element => {
-                        $("."+element.tevekenyseg_id).text(element.db);
-                    });
-                 });
+                
             }
         });
         

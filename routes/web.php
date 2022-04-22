@@ -5,18 +5,7 @@ use App\Http\Controllers\BejegyzesekController;
 use App\Http\Controllers\TevekenysegController;
 use App\Http\Controllers\OsztalyController;
 use App\Http\Controllers\UserController;
-//use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 require __DIR__.'/auth.php';
 
