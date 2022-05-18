@@ -72,7 +72,7 @@ class TevekenysegController extends Controller
      * @param  \App\Models\Tevekenyseg  $tevekenyseg
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tevekenyseg $tevekenyseg)
+    public function update(Request $request, $tevekenysegId)
     {
         $tevekenyseg = Tevekenyseg::find($tevekenysegId);
         $tevekenyseg->tevekenyseg_nev = $request->tevekenyseg_nev;
@@ -86,7 +86,7 @@ class TevekenysegController extends Controller
      * @param  \App\Models\Tevekenyseg  $tevekenyseg
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tevekenyseg $tevekenyseg)
+    public function destroy($tevekenysegId)
     {
         $tevekenyseg = Tevekenyseg::find($tevekenysegId);
         $tevekenyseg->delete();

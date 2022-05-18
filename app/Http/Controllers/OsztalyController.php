@@ -85,7 +85,7 @@ class OsztalyController extends Controller
      * @param  \App\Models\Osztaly  $osztaly
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Osztaly $osztaly)
+    public function destroy($osztalyId)
     {
         $osztaly = Osztaly::find($osztalyId);
         $osztaly->delete();

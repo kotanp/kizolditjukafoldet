@@ -39,7 +39,7 @@ $(function () {
 
     $(window).on("elutasitas",(event)=>{
         ajax.deleteAjax("/bejegyzes",event.detail.id);
-        ajax.getAjax("/bejegyzesek/tanar", bejegyzesLista);
+        ajax.getAjax("/bejegyzesek/filterbytanar", bejegyzesLista);
     });
 
     $("#logout").on("click", (event)=>{
