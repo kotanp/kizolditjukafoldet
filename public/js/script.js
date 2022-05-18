@@ -16,6 +16,8 @@ $(function () {
     function bejegyzesLista(adatok) {
         let szulo = $("#tablazat");
         szulo.empty();
+        console.log(adatok)
+
         let tablazat = new BejegyzesTablazat(szulo, adatok);
         let tablazat2 = new BejegyzesKisTablazat(szulo, adatok);
     }
@@ -27,7 +29,8 @@ $(function () {
                 "<option value='" +
                 elem.id +
                 "'>" +
-                elem.tevekenyseg_nev +
+                elem.tevekenyseg_nev + " "+`(${elem.pontszam} pont)`+
+                
                 "</option>";
             $("#tevekenyseg").append(option);
         });
@@ -114,33 +117,52 @@ $(function () {
     }
 
     let egyetSzinez = (pontszam) => {
+        //fa == TÖBB PONT
+        // 180/4 / kepszám? = 1pont? 100%?
+
+        // 100% 180
+        //  49+1  4
+        //8 % 4 = 2x kép
+        
         let szinezett = 0;
         let szinezheto = $(".szurkit");
+      
         let progress = $(".progress1");
         $(".badge").text("0");
+        console.log(pontszam)
         let szinez = (tomb) => {
-            for (let index = 0; index < pontszam; index++) {
-                $(tomb[index]).removeClass("szurkit");
-                szinezett++;
+            if(pontszam!==undefined){
+                for (let index = 0; index < pontszam/3.6; index++) {
+                    $(tomb[index]).removeClass("szurkit");
+                    szinezett++;
+                }
+                szinezett += pontszam/3.6;
+                console.log(szinezett)
+                progress.css("width", szinezett + "%");
+                $(".badge").text(pontszam);
+                if (szinezheto.length !== 0 ) {
+                    $("body").css("backgroundColor", "gray"); 
+                    
+                }
+    
+                if (pontszam >= 180) {
+                    $("body").css("backgroundColor", "rgba(0, 153, 255, 0.226)"); 
+                    
+                    $(".badge").text("100%");
+                    progress.css("width", 100 + "%");
+                    
+                }
             }
-            szinezett += 2;
-            progress.css("width", szinezett + "%");
-            $(".badge").text(pontszam);
-            if (szinezheto.length !== 0 ) {
+            else{
+                progress.css("width", 0 + "%");
                 $("body").css("backgroundColor", "gray"); 
-                
             }
-
-            if (pontszam >= 100) {
-                $("body").css("backgroundColor", "rgba(0, 153, 255, 0.226)"); 
-                
-                $(".badge").text("100%");
-                progress.css("width", 100 + "%");
-                
-            }
+            
+            
         };
 
         szinez(szinezheto);
+        
     };
 
     $("#osztaly").on("change", () => {

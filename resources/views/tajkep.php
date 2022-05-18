@@ -88,7 +88,7 @@
     </div>
     <div  class="menu">
     
-      <div class="colorOnce" >Pontszám<span class="badge">0</span></div>
+      <div class="colorOnce" ><span class="ptsz">Pontszám</span><span class="badge">0</span></div>
       <div class="progress-bar1">
         <div class="progress1"></div>
       </div>

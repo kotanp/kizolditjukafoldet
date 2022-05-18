@@ -47,6 +47,7 @@ class BejegyzesTablazat{
 class BejegyzesKisTablazat extends BejegyzesTablazat{
     constructor(szulo, adat){
         super(szulo, adat);
+        console.log(this)
     }
 
     tablazat(szulo){
@@ -62,9 +63,9 @@ class BejegyzesKisTablazat extends BejegyzesTablazat{
             tabla.append("<tr></tr>");
             this.tablaElem = tabla.children("tbody").children("tr:last");
             this.tablaElem.append(
-              "<td>" + this.adat[index].osztaly.nev + "\nPontérték: " + this.adat[index].tevekenyseg.pontszam + "</td>"
+              "<td>" + this.adat[index].nev + "\nPontérték: " + this.adat[index].pontszam + "</td>"
             );
-            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg.tevekenyseg_nev + "\nStátusz: " + this.adat[index].allapot + "</td>");
+            this.tablaElem.append("<td>" + this.adat[index].tevekenyseg_nev + "\nStátusz: " + this.adat[index].allapot + "</td>");
         }
     }
 }
